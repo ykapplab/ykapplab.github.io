@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보처리방침 - DripMate (드립메이트)</title>
+    <style>
+        :root {
+            --bg-color: #FBF9F5;
+            --card-bg: #FFFFFF;
+            --primary: #8C5A3C;
+            --primary-dark: #2B1810;
+            --accent: #E68A00;
+            --text-main: #2D2825;
+            --text-muted: #6B615B;
+            --border: #EADBCE;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 32px 16px;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(43, 24, 16, 0.05);
+            padding: 40px 32px;
+        }
+
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #F7EFE9;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .intro {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 32px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        p {
+            font-size: 15px;
+            margin-bottom: 12px;
+            word-break: keep-all;
+        }
+
+        .highlight-box {
+            background-color: #FDFBF8;
+            border-left: 3px solid var(--primary);
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            margin: 14px 0;
+            font-size: 14.5px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            color: var(--primary-dark);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 13.5px;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 16px 12px;
+            }
+            .container {
+                padding: 24px 20px;
+                border-radius: 12px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+            h2 {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="badge">Privacy Policy</span>
+        <h1>개인정보처리방침</h1>
+        <p class="intro">DripMate (드립메이트) 서비스의 개인정보 보호 및 처리 방침에 대해 안내해 드립니다.</p>
+    </header>
+
+    <main>
+        <p>본 개인정보처리방침은 <strong>DripMate (드립메이트)</strong>(이하 "앱")가 사용자의 정보를 어떻게 처리하는지 설명합니다.</p>
+
+        <h2>1. 개인정보의 수집 및 이용 목적</h2>
+        <div class="highlight-box">
+            DripMate는 사용자의 개인 식별 정보(이름, 주민등록번호, 전화번호, 이메일 주소 등)를 서버에 직접 수집하거나 저장하지 않습니다.
+        </div>
+        <p>앱 내의 모든 데이터(원두 보유 목록, 추출 히스토리, 취향 설정값)는 <strong>사용자의 기기 내부 로컬 저장소(DataStore/SharedPreferences)</strong>에만 안전하게 보관됩니다.</p>
+
+        <h2>2. 사용하는 권한 및 서드파티 SDK 안내</h2>
+        <p>앱은 원활하고 안정적인 서비스 제공을 위해 최소한의 시스템 권한과 구글 공식 SDK를 사용합니다:</p>
+        
+        <ol>
+            <li>
+                <strong>VIBRATE (진동 권한):</strong><br>
+                커피 추출 4단계(드리퍼 분리 알림 - Cut-off Phase) 도달 시 사용자에게 촉각 알림을 제공하기 위해 사용됩니다.
+            </li>
+            <li>
+                <strong>INTERNET (인터넷 접근 권한):</strong><br>
+                Google AdMob 광고 로드 및 Google Play Billing 인앱 결제 상태 확인을 위해서만 사용됩니다.
+            </li>
+            <li>
+                <strong>Google Play Billing (인앱 결제):</strong><br>
+                광고 제거(PRO 버전) 구매 처리는 구글 플레이 결제 시스템을 통해 전적으로 처리되며, 결제 정보(신용카드 번호 등)는 앱에 일체 전달되거나 저장되지 않습니다.
+            </li>
+            <li>
+                <strong>Google AdMob (모바일 광고):</strong><br>
+                비개인화 또는 맞춤형 광고 게재를 위해 Google Play 서비스에서 제공하는 광고 ID(AD_ID) 및 익명 기기 식별자를 활용할 수 있습니다.<br>
+                자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google 개인정보처리방침</a>을 참고하시기 바랍니다.
+            </li>
+        </ol>
+
+        <h2>3. 개인정보의 보관 및 파기</h2>
+        <p>모든 사용자 데이터는 기기 로컬에만 저장되므로, 사용자가 앱을 삭제(제거)하거나 기기 설정에서 앱 데이터를 삭제하면 모든 데이터가 즉시 영구 파기됩니다.</p>
+
+        <h2>4. 문의처</h2>
+        <p>본 앱의 개인정보 보호와 관련된 문의사항이 있으신 경우 아래 연락처로 문의해 주시기 바랍니다:</p>
+        <ul>
+            <li><strong>개발자 이메일:</strong> (구글 플레이 콘솔에 등록된 개발자 이메일을 입력하세요)</li>
+            <li><strong>최종 수정일:</strong> 2026년 10월 26일</li>
+        </ul>
+    </main>
+
+    <footer>
+        &copy; 2026 DripMate. All rights reserved.
+    </footer>
+</div>
+
+</body>
+</html>
