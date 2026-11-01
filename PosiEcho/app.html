@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>긍정 메아리 (PosiEcho) - 긍정 확언 루틴</title>
+  
+  <!-- PWA Meta & Icons -->
+  <meta name="theme-color" content="#f97316">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="긍정 메아리">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+
+  <link rel="stylesheet" href="style.css?v=1.0.14">
+  <!-- Pretendard Font -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <!-- Canvas Confetti (Local Offline Bundle with CDN Fallback) -->
+  <script src="confetti.browser.min.js"></script>
+  <script>
+    if (!window.confetti) {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"><\/script>');
+    }
+  </script>
+</head>
+<body class="theme-morning android-app">
+  <div class="desktop-layout-wrapper">
+    <!-- 왼쪽 데스크탑 가이드 영역 (큰 화면에서만 표시) -->
+    <aside class="desktop-sidebar">
+      <div class="brand-badge">
+        <span class="logo-emoji">🌿</span>
+        <h1>긍정 메아리</h1>
+        <span class="version-tag">v1.0.14</span>
+      </div>
+      <p class="tagline">소리 내어 읽고 마음에 새기는 하루 3번의 긍정 루틴</p>
+      
+      <div style="margin: 12px 0 16px;">
+        <a href="index.html" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: rgba(249, 115, 22, 0.1); color: #ea580c; border-radius: 9999px; font-size: 0.85rem; font-weight: 700; text-decoration: none; border: 1px solid rgba(249, 115, 22, 0.2);">
+          🏠 서비스 소개 랜딩페이지로 이동
+        </a>
+      </div>
+      
+      <div class="sidebar-guide-card">
+        <h3>💡 긍정 메아리 루틴 가이드</h3>
+        <ul>
+          <li><strong>시간대 전환:</strong> 상단의 ☀️아침 / 🌤️점심 / 🌙저녁 버튼으로 시간대별 명언을 즉시 체험할 수 있습니다.</li>
+          <li><strong>음성인식(STT):</strong> 마이크를 켜고 명언을 소리 내어 낭독해보세요. 80% 이상 유사도 달성 시 카운트됩니다.</li>
+          <li><strong>텍스트 모드:</strong> 소리를 낼 수 없다면 키보드로 직접 타이핑하여 연습할 수 있습니다.</li>
+          <li><strong>TTS & ASMR:</strong> 선행 듣기 스피커와 우측 상단 잔잔한 빗소리/명상음을 켜보세요.</li>
+          <li><strong>나무 & 캘린더:</strong> 미션을 달성할수록 긍정의 나무가 자라나고 달력에 황금 배지가 채워집니다.</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-status-box">
+        <div class="status-item">
+          <span class="status-label">누적 달성 일수 (하루 3회)</span>
+          <span class="status-value" id="sidebarTotalSuccess">0일</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">긍정의 나무 상태</span>
+          <span class="status-value" id="sidebarTreeStage">🌱 씨앗</span>
+        </div>
+        <div class="status-item full-width-status">
+          <span class="status-label">오늘의 3회 루틴 달성 현황</span>
+          <div class="routine-badges-val" id="sidebarTodayRoutines">
+            <span class="sidebar-routine-chip" id="sbRoutineMorning">☀️ 아침 06~11h</span>
+            <span class="sidebar-routine-chip" id="sbRoutineLunch">🌤️ 점심 11~17h</span>
+            <span class="sidebar-routine-chip" id="sbRoutineEvening">🌙 저녁 17~24h</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 모바일 스마트폰 목업 프레임 -->
+    <main class="phone-mockup">
+      <div class="phone-speaker"></div>
+
+      <!-- 모바일 상단 프리미엄 앱바 -->
+      <!-- 모바일 상단 프리미엄 앱바 (1단: 로고 & 상단 툴바) -->
+      <header class="app-header">
+        <div class="header-brand">
+          <img src="icon-192.png" alt="PosiEcho Logo" class="brand-logo-img">
+          <div class="brand-text-group">
+            <span class="brand-title">긍정 메아리</span>
+          </div>
+        </div>
+
+        <!-- 헤더 액션 (원형 아이콘 버튼) -->
+        <div class="header-actions">
+          <button type="button" id="headerProBtn" class="header-pro-badge-btn" title="PosiEcho PRO 멤버십" aria-label="PRO 멤버십">
+            <span class="pro-crown">👑</span> <span id="headerProText">PRO</span>
+          </button>
+          <button id="asmrBtn" class="icon-btn header-circle-btn" title="ASMR 힐링 사운드 (토닥토닥 빗소리) - 터치하여 재생 / 길게 눌러 모드 변경" aria-label="ASMR 사운드 재생">
+            <span class="btn-icon">🌧️</span>
+          </button>
+          <button id="optionsBtn" class="icon-btn header-circle-btn" title="옵션 및 설정 (알림 & 나무 튜토리얼)" aria-label="옵션 및 설정">
+            <span class="btn-icon">⚙️</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- 컨텐츠 영역 (탭 전환) -->
+      <div class="screen-content">
+        <!-- 1. 미션 수행 화면 (홈) -->
+        <section id="tab-mission" class="tab-panel active">
+          <!-- 루틴 세션 네비게이션 바 (홈 탭 전용 1줄 컴팩트 칩) -->
+          <nav class="session-nav-bar" aria-label="루틴 시간대 선택">
+            <div class="time-session-chips">
+              <button class="chip active" data-session="morning" title="새벽·아침 루틴 (04:00 ~ 11:00)">
+                <span class="chip-title">☀️ 아침<span class="chip-check">✔</span></span>
+              </button>
+              <button class="chip" data-session="lunch" title="점심 루틴 (11:00 ~ 17:00)">
+                <span class="chip-title">🌤️ 점심<span class="chip-check">✔</span></span>
+              </button>
+              <button class="chip" data-session="evening" title="저녁 루틴 (17:00 ~ 24:00)">
+                <span class="chip-title">🌙 저녁<span class="chip-check">✔</span></span>
+              </button>
+            </div>
+          </nav>
+
+          <!-- 감정 체크 인라인 바 (이모지 중심 심플 바) -->
+          <div class="mood-greeting-bar">
+            <span class="greeting-text" id="greetingMoodText">💭 오늘 기분</span>
+            <div class="mood-emojis">
+              <button class="mood-btn" data-mood="great" title="활기차요" aria-label="활기차요">
+                <span class="mood-emoji">😄</span>
+              </button>
+              <button class="mood-btn" data-mood="good" title="좋아요" aria-label="좋아요">
+                <span class="mood-emoji">😊</span>
+              </button>
+              <button class="mood-btn" data-mood="calm" title="평온해요" aria-label="평온해요">
+                <span class="mood-emoji">😌</span>
+              </button>
+              <button class="mood-btn" data-mood="tired" title="조금 지쳐요" aria-label="조금 지쳐요">
+                <span class="mood-emoji">🥺</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- [카드 1] 오늘의 확언 카드 -->
+          <div class="affirmation-card">
+            <div class="card-top">
+              <span class="session-badge" id="cardSessionBadge">🌅 오늘의 아침 확언</span>
+              <div class="card-action-group">
+                <button id="ttsGenderBtn" class="card-action-btn tts-gender-toggle-btn" title="선행듣기 목소리: 차분한 여성 (탭하여 남성으로 변경)" aria-label="선행듣기 목소리 변경">
+                  <span class="action-icon" id="ttsGenderIcon">👩</span>
+                </button>
+                <button id="favoriteQuoteBtn" class="card-action-btn" title="나만의 확언에 찜하기" aria-label="즐겨찾기">
+                  <span class="action-icon" id="favIcon">🤍</span>
+                </button>
+                <button id="shuffleQuoteBtn" class="card-action-btn" title="다른 확언 추천받기" aria-label="다른 확언">
+                  <span class="action-icon">🎲</span>
+                </button>
+                <button id="ttsBtn" class="card-action-btn tts-action-btn" title="선행 듣기 (TTS)" aria-label="선행 듣기">
+                  <span class="action-icon" id="ttsIcon">🔊</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="quote-container">
+              <p class="quote-text" id="targetQuote">"나는 매일 모든 면에서 점점 더 좋아지고 있다."</p>
+              <p class="quote-author" id="targetAuthor">- 에밀 쿠에 (Émile Coué)</p>
+            </div>
+
+            <!-- 🎯 또박또박 낭독 단어 칩 가이드 바 (명언 바로 아래 배치하여 말할 때 실시간 점등) -->
+            <div class="word-match-guide" id="wordMatchGuide"></div>
+
+            <div class="mission-counter">
+              <div class="counter-steps">
+                <div class="step-dot" id="step1">1</div>
+                <div class="step-line"></div>
+                <div class="step-dot" id="step2">2</div>
+                <div class="step-line"></div>
+                <div class="step-dot" id="step3">3</div>
+              </div>
+              <span class="counter-status" id="counterStatusText">0 / 3회</span>
+            </div>
+          </div>
+
+          <!-- 3회 달성 시 노출되는 다음 행동 유도(CTA) 배너 -->
+          <div id="sessionNextCtaBanner" class="session-cta-banner hidden">
+            <div class="cta-banner-icon" id="ctaBannerIcon">🎉</div>
+            <div class="cta-banner-content">
+              <h4 id="ctaBannerTitle">오늘 3회 달성을 축하합니다!</h4>
+              <p id="ctaBannerDesc">캘린더에 멋진 배지가 새겨졌습니다.</p>
+            </div>
+            <button type="button" id="ctaBannerActionBtn" class="cta-banner-btn">
+              <span id="ctaBannerBtnText">📅 배지 확인</span>
+            </button>
+          </div>
+
+          <!-- [카드 2] 낭독 & 인터랙션 카드 -->
+          <div class="interaction-card">
+            <div class="interaction-card-header">
+              <div class="mode-tabs inline-mode-toggle">
+                <button class="mode-tab-btn active" data-mode="stt" title="음성 낭독 모드">
+                  🎙️ 음성 낭독
+                </button>
+                <button class="mode-tab-btn" data-mode="type" title="텍스트 필사 모드">
+                  ⌨️ 타이핑
+                </button>
+              </div>
+            </div>
+
+            <!-- [모드 1] 음성 인식 STT 영역 -->
+            <div id="sttModeView" class="mode-view active">
+              <div class="voice-interaction-stage">
+                <div class="pulse-visualizer" id="pulseVisualizer">
+                  <div class="wave wave1"></div>
+                  <div class="wave wave2"></div>
+                  <div class="wave wave3"></div>
+                  <button id="micBtn" class="mic-button">
+                    <span class="mic-icon">🎙️</span>
+                  </button>
+                </div>
+                <p class="mic-hint" id="micHint">마이크를 눌러 소리 내어 읽어보세요</p>
+
+                <!-- 실시간 음성인식 결과창 (평소 숨김, 낭독 시작 시 노출) -->
+                <div class="recognition-box hidden" id="recognitionBox">
+                  <div class="speech-result-top">
+                    <span class="speech-result-label">인식된 음성</span>
+                    <div class="similarity-pill">
+                      <span>일치도</span>
+                      <strong id="similarityScore">0%</strong>
+                    </div>
+                  </div>
+                  <div class="speech-text" id="recognizedText">"여기에 인식된 목소리가 표시됩니다"</div>
+                  <div class="progress-track">
+                    <div class="progress-fill" id="similarityFill" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <!-- 타임캡슐 감성 숏컷 바 (1줄 심플 바) -->
+                <div class="mission-capsule-shortcut" id="missionCapsuleShortcut" style="margin-top: 8px; padding: 8px 12px; background: rgba(99, 102, 241, 0.06); border-radius: 12px; display: flex; align-items: center; justify-content: space-between; width: 100%; border: 1px solid rgba(99, 102, 241, 0.14);">
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <span style="font-size: 14px;">🎙️</span>
+                    <span style="font-size: 12px; font-weight: 600; color: var(--text-secondary);" id="missionCapsuleStatusText">오늘의 목소리 타임캡슐</span>
+                  </div>
+                  <button id="missionCapsuleBtn" type="button" style="background: var(--primary-accent); color: #fff; border: none; padding: 5px 11px; border-radius: 999px; font-size: 11px; font-weight: 700; cursor: pointer;">
+                    🎙️ 타임캡슐
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- [모드 2] 텍스트 필사 인터랙션 -->
+            <div id="typeModeView" class="mode-view">
+              <div class="typing-interaction-area">
+                <div class="typing-input-wrapper" id="typingInputWrapper">
+                  <div class="typing-box-relative">
+                    <div class="typing-watermark" id="typingWatermark" aria-hidden="true"></div>
+                    <textarea id="typingInput" rows="3" placeholder="위 확언을 보며 정성껏 입력해주세요..."></textarea>
+                  </div>
+                  <div class="typing-match-indicator">
+                    <div class="typing-score-pill">
+                      <span>일치도</span>
+                      <strong id="typingAccuracy">0%</strong>
+                      <span class="score-target">(80% 이상)</span>
+                    </div>
+                    <button id="submitTypingBtn" class="submit-type-btn">✨ 기록하기</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. 캘린더 화면 (출석 & 연속 달성 스트릭 집중) -->
+        <section id="tab-calendar" class="tab-panel">
+          <!-- 월간 & 연속 실천(Streak) 통계 위젯 -->
+          <div class="calendar-stats-row">
+            <div class="stat-mini-card">
+              <div class="stat-card-icon">🔥</div>
+              <div class="stat-card-info">
+                <span class="stat-label">연속 달성</span>
+                <strong class="stat-value" id="statStreakDays">0일</strong>
+              </div>
+            </div>
+            <div class="stat-mini-card">
+              <div class="stat-card-icon">🏅</div>
+              <div class="stat-card-info">
+                <span class="stat-label">이달의 달성</span>
+                <strong class="stat-value" id="statMonthDays">0일</strong>
+              </div>
+            </div>
+            <div class="stat-mini-card">
+              <div class="stat-card-icon">💭</div>
+              <div class="stat-card-info">
+                <span class="stat-label">이달의 마음</span>
+                <strong class="stat-value" id="statTopMood">-</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- 월간 캘린더 -->
+          <div class="calendar-card">
+            <div class="calendar-nav">
+              <button id="prevMonthBtn" class="nav-btn" aria-label="이전 달">&lt;</button>
+              <div class="calendar-title-wrap">
+                <h4 id="calendarMonthTitle">2026년 9월</h4>
+                <button type="button" id="todayJumpBtn" class="today-jump-btn">오늘</button>
+              </div>
+              <button id="nextMonthBtn" class="nav-btn" aria-label="다음 달">&gt;</button>
+            </div>
+            <div class="calendar-grid-header">
+              <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+            </div>
+            <div class="calendar-days-grid" id="calendarDaysGrid">
+              <!-- JS 동적 생성 -->
+            </div>
+            <!-- 간략화된 배지 가이드 (1줄 심플 바) -->
+            <div class="calendar-legend compact">
+              <div class="legend-badge-guide">
+                <span class="guide-item">🏅 3회 달성</span>
+                <span class="guide-sep">·</span>
+                <span class="guide-item">💮 부분 달성</span>
+                <span class="guide-sep">·</span>
+                <span class="guide-item">💭 마음 기록</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 캘린더 최하단 네이티브 광고 배너 슬롯 -->
+          <div class="ad-banner-slot calendar-ad-banner" id="calendarAdBanner">
+            <div class="ad-badge-row">
+              <span class="ad-label">AD</span>
+              <button type="button" class="ad-remove-trigger-btn" id="adRemoveBtnCal">광고 제거 ✨</button>
+            </div>
+            <div class="ad-banner-body" id="calendarAdContent">
+              <span class="ad-icon">☕</span>
+              <div class="ad-info">
+                <strong class="ad-title">하루 한 번, 마음을 맑게 비우는 시간</strong>
+                <p class="ad-desc">PosiEcho와 함께하는 평온한 하루 · 스폰서</p>
+              </div>
+              <button type="button" class="ad-action-btn" id="calendarAdActionBtn">자세히</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. 긍정 정원 화면 (성장 & 다품종 도감 갤러리 메인) -->
+        <section id="tab-garden" class="tab-panel">
+          <!-- 상단 2단 세그먼트 서브 네비게이션: 나의 긍정 나무 vs 피워낸 꽃나무 정원 -->
+          <div class="garden-subnav-bar">
+            <button type="button" class="garden-subtab active" data-subtab="tree" id="subtabTreeBtn">
+              <span>🌳 나의 긍정 나무</span>
+            </button>
+            <button type="button" class="garden-subtab" data-subtab="collection" id="subtabCollectionBtn">
+              <span>🏛️ 피워낸 정원 도감</span>
+              <span class="subtab-badge" id="gardenSubtabBadge">0</span>
+            </button>
+          </div>
+
+          <!-- 서브뷰 1: 나의 긍정 나무 (성장에 집중) -->
+          <div id="gardenSubViewTree" class="garden-subview active">
+            <div class="tree-growth-card">
+              <div class="tree-header">
+                <div class="tree-title-group">
+                  <h3>🌳 나의 긍정 나무</h3>
+                  <span class="tree-level-badge" id="treeLevelBadge">레벨 1 · 발아</span>
+                </div>
+                <div class="tree-header-right">
+                  <button type="button" id="openTreeGuideBtn" class="tree-guide-link-btn" title="나무 성장 튜토리얼 보기">💡 가이드</button>
+                </div>
+              </div>
+              <div class="tree-visual-box" id="treeVisualBox" title="나무를 탭하여 토닥여주세요!">
+                <div class="tree-stage-art" id="treeArt">🫘</div>
+                <p class="tree-plant-name" id="treePlantName">🌸 화사한 벚꽃나무</p>
+                <p class="tree-message" id="treeMessage">하루 3번 확언으로 나무를 키워보세요</p>
+                <button type="button" id="waterTreeBtn" class="tree-pat-btn">
+                  <span>💧</span> 토닥이기
+                </button>
+              </div>
+              <!-- 만개 시 노출되는 새 씨앗 심기 특별 배너 -->
+              <div id="treeBloomBanner" class="tree-bloom-banner hidden">
+                <div class="bloom-banner-info">
+                  <span class="bloom-icon">✨🌸✨</span>
+                  <div class="bloom-text-wrap">
+                    <strong>만개를 축하합니다!</strong>
+                    <p>정원에 등록 완료! 새 씨앗을 심어보세요.</p>
+                  </div>
+                </div>
+                <button type="button" id="openSeedSelectBtn" class="plant-new-seed-btn">
+                  <span>🌱</span> 새 씨앗 심기
+                </button>
+              </div>
+              <div class="tree-exp-bar">
+                <div class="exp-track">
+                  <div class="exp-fill" id="treeExpFill" style="width: 10%;"></div>
+                </div>
+                <div class="exp-numbers">
+                  <span id="treeExpText">🌱 어린 새싹까지 2일 남음 (0/2일)</span>
+                </div>
+              </div>
+              <div class="tree-card-bottom-actions">
+                <button type="button" id="openSeedSelectTreeBtn" class="tree-seed-change-btn">🌱 씨앗 변경 및 정보</button>
+              </div>
+            </div>
+
+            <!-- PRO 2배 성장 영양제 부스터 카드 -->
+            <div class="tree-pro-booster-card" id="gardenBoosterCard">
+              <div class="booster-header-row">
+                <div class="booster-title-group">
+                  <span class="booster-icon">⚡</span>
+                  <strong class="booster-title">2배 성장 영양제</strong>
+                </div>
+                <span class="pro-chip small">👑 PRO</span>
+              </div>
+              <p class="booster-desc" id="gardenBoosterDesc">하루 1세트 이상 실천 시 +1일 추가 성장</p>
+              <button type="button" class="booster-action-btn" id="gardenBoosterBtn">
+                <span id="gardenBoosterBtnText">⚡ 영양제 주기 (+1일 성장)</span>
+              </button>
+            </div>
+
+            <!-- 나의 긍정 나무 하단 네이티브 광고 배너 슬롯 -->
+            <div class="ad-banner-slot tree-ad-banner" id="treeAdBanner">
+              <div class="ad-badge-row">
+                <span class="ad-label">AD</span>
+                <button type="button" class="ad-remove-trigger-btn" id="adRemoveBtnTree">광고 제거 ✨</button>
+              </div>
+              <div class="ad-banner-body" id="treeAdContent">
+                <span class="ad-icon">🌱</span>
+                <div class="ad-info">
+                  <strong class="ad-title">매일 자라나는 나만의 긍정 루틴</strong>
+                  <p class="ad-desc">PosiEcho와 함께 작은 성장을 축하해요 · 스폰서</p>
+                </div>
+                <button type="button" class="ad-action-btn" id="treeAdActionBtn">자세히</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 서브뷰 2: 피워낸 정원 도감 (컬렉션 아카이브) -->
+          <div id="gardenSubViewCollection" class="garden-subview hidden">
+            <!-- 정원 요약 통계 배너 -->
+            <div class="garden-summary-card">
+              <div class="garden-summary-item">
+                <span class="garden-stat-label">완성한 나무</span>
+                <strong class="garden-stat-val" id="gardenTotalTreesCount">0그루</strong>
+              </div>
+              <div class="garden-summary-sep"></div>
+              <div class="garden-summary-item">
+                <span class="garden-stat-label">누적 달성</span>
+                <strong class="garden-stat-val" id="gardenTotalDaysCount">0일</strong>
+              </div>
+              <div class="garden-summary-sep"></div>
+              <div class="garden-summary-item">
+                <span class="garden-stat-label">올해의 숲</span>
+                <strong class="garden-stat-val" id="gardenYearProgress">0 / 12</strong>
+              </div>
+            </div>
+
+            <!-- 도감 컬렉션 갤러리 섹션 -->
+            <div class="garden-section-card">
+              <div class="garden-section-header">
+                <div class="section-title-wrap">
+                  <span class="section-icon">🏛️</span>
+                  <h4>내가 피워낸 꽃나무 컬렉션</h4>
+                </div>
+                <button type="button" id="openSeedSelectFromGardenBtn" class="tree-guide-link-btn" title="다른 씨앗 고르기">🌱 씨앗 변경</button>
+              </div>
+              <div class="garden-collection-grid" id="gardenCollectionGrid">
+                <!-- JS 동적 렌더링 -->
+              </div>
+            </div>
+
+            <!-- 피워낸 정원 도감 하단 네이티브 광고 배너 슬롯 -->
+            <div class="ad-banner-slot garden-ad-banner" id="gardenAdBanner">
+              <div class="ad-badge-row">
+                <span class="ad-label">AD</span>
+                <button type="button" class="ad-remove-trigger-btn" id="adRemoveBtnGarden">광고 제거 ✨</button>
+              </div>
+              <div class="ad-banner-body" id="gardenAdContent">
+                <span class="ad-icon">🌸</span>
+                <div class="ad-info">
+                  <strong class="ad-title">아름다운 꽃나무를 마음속에 영구 소장</strong>
+                  <p class="ad-desc">PosiEcho PRO 준비 중 · 프리미엄 씨앗 알아보기</p>
+                </div>
+                <button type="button" class="ad-action-btn" id="gardenAdActionBtn">알아보기</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. 나만의 확언 관리 화면 -->
+        <section id="tab-custom" class="tab-panel">
+          <!-- 1. 나의 하루 3대 루틴 확언 현황 슬롯 (접기/펼치기 아코디언) -->
+          <div class="custom-card routine-slots-card is-collapsed" id="routineSlotsCard">
+            <div class="custom-card-header routine-slots-toggle" id="routineSlotsToggle" role="button" tabindex="0" aria-expanded="false" title="터치하여 펼치기/접기">
+              <div class="custom-title-group">
+                <span class="custom-header-icon">🎯</span>
+                <h3>하루 3대 루틴 확언 현황</h3>
+              </div>
+              <div class="slots-header-actions">
+                <span class="routine-slots-toggle-btn" id="routineSlotsToggleBtn">펼치기 ▾</span>
+              </div>
+            </div>
+            
+            <div class="routine-slots-body" id="routineSlotsBody">
+              <div class="routine-slots-list" id="routineSlotsList">
+                <!-- JS 동적 생성 (아침, 점심, 저녁 슬롯 카드) -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. 나만의 확언 작성 및 즉시 지정 카드 -->
+          <div class="custom-card" id="customCard">
+            <div class="custom-card-header">
+              <div class="custom-title-group">
+                <span class="custom-header-icon" id="customHeaderIcon">✍️</span>
+                <h3 id="customCardTitle">나만의 확언 작성</h3>
+              </div>
+              <span class="custom-tag-badge" id="customTagBadge">루틴 지정</span>
+            </div>
+            
+            <div class="custom-input-wrapper">
+              <textarea id="customInput" rows="2" maxlength="100" placeholder="예: 나는 충분히 지혜롭고 매 순간 잘 헤쳐나간다."></textarea>
+              <div class="custom-input-footer">
+                <button type="button" id="clearCustomInputBtn" class="clear-input-btn hidden" title="입력 내용 지우기">✕ 지우기</button>
+                <span id="customCharCount" class="char-counter">0 / 100자</span>
+              </div>
+            </div>
+
+            <!-- 어디에 적용할지 간결한 1줄 선택기 -->
+            <div class="custom-schedule-picker">
+              <div class="schedule-chips-row compact-4col" id="newQuoteScheduleChips">
+                <button type="button" class="sched-chip" data-session="morning">🌅 아침</button>
+                <button type="button" class="sched-chip" data-session="lunch">☀️ 점심</button>
+                <button type="button" class="sched-chip" data-session="evening">🌙 저녁</button>
+                <button type="button" class="sched-chip active" data-session="stored">📂 보관함</button>
+              </div>
+            </div>
+
+            <!-- 하단 추가/수정 버튼 그룹 -->
+            <div class="add-custom-btn-wrap">
+              <button id="addCustomBtn" class="add-custom-full-btn">
+                <span id="addCustomBtnIcon">✨</span> <span id="addCustomBtnText">확언 저장하기</span>
+              </button>
+              <button type="button" id="cancelEditCustomBtn" class="cancel-edit-btn hidden">취소</button>
+            </div>
+          </div>
+
+          <!-- 3. 추천 확언 카드 (기본 접힘 아코디언) -->
+          <div class="custom-recommend-card is-collapsed" id="recommendCard">
+            <div class="recommend-header recommend-toggle" id="recommendToggle" role="button" tabindex="0" aria-expanded="false">
+              <div class="custom-title-group">
+                <span class="recommend-icon">💡</span>
+                <h4>추천 확언 문장 불러오기</h4>
+              </div>
+              <span class="routine-slots-toggle-btn" id="recommendToggleBtn">펼치기 ▾</span>
+            </div>
+            <div class="recommend-chips-grid recommend-body" id="recommendBody">
+              <button type="button" class="recommend-chip" data-quote="나는 매 순간 더 지혜롭고 단단해지고 있다.">
+                <span class="chip-emoji">🌱</span>
+                <span class="chip-quote-text">나는 매 순간 더 지혜롭고 단단해지고 있다.</span>
+              </button>
+              <button type="button" class="recommend-chip" data-quote="어떤 상황에서도 나는 내 마음의 평화를 선택한다.">
+                <span class="chip-emoji">🕊️</span>
+                <span class="chip-quote-text">어떤 상황에서도 나는 내 마음의 평화를 선택한다.</span>
+              </button>
+              <button type="button" class="recommend-chip" data-quote="오늘도 나에게 주어진 모든 가능성과 순간에 감사한다.">
+                <span class="chip-emoji">✨</span>
+                <span class="chip-quote-text">오늘도 나에게 주어진 모든 가능성과 순간에 감사한다.</span>
+              </button>
+              <button type="button" class="recommend-chip" data-quote="나는 내 삶의 당당한 주인공이며 충분한 힘을 가지고 있다.">
+                <span class="chip-emoji">☀️</span>
+                <span class="chip-quote-text">나는 내 삶의 당당한 주인공이며 충분한 힘을 가지고 있다.</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. 나만의 확언 보관함 카드 -->
+          <div class="custom-list-card">
+            <div class="custom-list-header">
+              <div class="list-title-group">
+                <span class="list-icon">📂</span>
+                <h4>나만의 확언 보관함</h4>
+              </div>
+              <span class="custom-count-badge" id="customCountBadge">0개</span>
+            </div>
+
+            <!-- 보관함 연동 미션 자동 띄우기 설정 바 (1줄 심플형) -->
+            <div class="custom-auto-apply-bar">
+              <div class="auto-apply-info">
+                <div class="auto-apply-title">
+                  <span class="auto-apply-icon">⏰</span>
+                  <strong>루틴 시간에 자동 띄우기</strong>
+                </div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="customAutoApplyToggle" />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <!-- 카테고리 필터 탭 바 -->
+            <div class="custom-filter-bar" id="customFilterBar">
+              <button type="button" class="filter-cat-btn active" data-filter="all">전체</button>
+              <button type="button" class="filter-cat-btn" data-filter="self">🌱 자존감</button>
+              <button type="button" class="filter-cat-btn" data-filter="wealth">💰 부자·재정 <span class="pro-chip small">👑 PRO</span></button>
+              <button type="button" class="filter-cat-btn" data-filter="career">🚀 성공·도전 <span class="pro-chip small">👑 PRO</span></button>
+              <button type="button" class="filter-cat-btn" data-filter="peace">🕊️ 평온·치유 <span class="pro-chip small">👑 PRO</span></button>
+            </div>
+
+            <div class="custom-list" id="customAffirmationsList">
+              <!-- JS 동적 생성 -->
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 하단 네비게이션 바 (4탭 체제) -->
+      <nav class="app-bottom-nav" aria-label="메인 하단 탭 메뉴">
+        <button class="nav-tab active" data-target="tab-mission" role="tab" aria-selected="true" aria-controls="tab-mission">
+          <span class="nav-icon">✨</span>
+          <span class="nav-text">긍정울림</span>
+        </button>
+        <button class="nav-tab" data-target="tab-calendar" role="tab" aria-selected="false" aria-controls="tab-calendar">
+          <span class="nav-icon">📅</span>
+          <span class="nav-text">캘린더</span>
+        </button>
+        <button class="nav-tab" data-target="tab-garden" role="tab" aria-selected="false" aria-controls="tab-garden">
+          <span class="nav-icon">🌳</span>
+          <span class="nav-text">긍정 정원</span>
+        </button>
+        <button class="nav-tab" data-target="tab-custom" role="tab" aria-selected="false" aria-controls="tab-custom">
+          <span class="nav-icon">✍️</span>
+          <span class="nav-text">나만의 확언</span>
+        </button>
+      </nav>
+
+      <!-- 4. 옵션 & 설정 모달 (3탭: 루틴 알림 / 소리 & 일반 / 성장 가이드) -->
+      <div id="notificationModal" class="modal-backdrop hidden" aria-hidden="true">
+        <div class="modal-dialog options-modal-dialog">
+          <div class="modal-header">
+            <div class="modal-title-group">
+              <span class="modal-title-icon" id="optionsModalIcon">⏰</span>
+              <h3 id="optionsModalTitle">루틴 알림 설정</h3>
+            </div>
+            <button id="closeNotiModalBtn" class="modal-close-btn" aria-label="닫기">✕</button>
+          </div>
+
+          <!-- 옵션 상단 3단 세그먼트 네비게이션 -->
+          <div class="options-nav-bar">
+            <button type="button" class="opt-nav-btn active" data-tab="tab-opt-noti" id="optTabNotiBtn">
+              <span class="opt-btn-icon">⏰</span>
+              <span>루틴 알림</span>
+            </button>
+            <button type="button" class="opt-nav-btn" data-tab="tab-opt-general" id="optTabGeneralBtn">
+              <span class="opt-btn-icon">⚙️</span>
+              <span>소리·일반</span>
+            </button>
+            <button type="button" class="opt-nav-btn" data-tab="tab-opt-tree" id="optTabTreeBtn">
+              <span class="opt-btn-icon">💡</span>
+              <span>성장 가이드</span>
+            </button>
+          </div>
+
+          <div class="modal-body options-modal-body">
+            <!-- 탭 1: 하루 3번 루틴 알림 설정 -->
+            <div id="tab-opt-noti" class="opt-panel active">
+              <!-- 권한 상태 알림 바 -->
+              <div id="notiPermissionBanner" class="noti-permission-banner">
+                <div class="permission-status-text">
+                  <span id="notiPermIcon">📢</span>
+                  <span id="notiPermMsg">매일 확언 루틴 알림을 받으려면 알림 권한이 필요합니다.</span>
+                </div>
+                <button id="reqPermBtn" class="perm-action-btn">권한 허용</button>
+              </div>
+
+              <!-- 마스터 알림 스위치 -->
+              <div class="noti-master-card">
+                <div class="master-label-group">
+                  <strong class="master-label">루틴 리마인더 알림</strong>
+                  <span class="master-subtext">잊지 않고 하루 3회 확언을 채울 수 있도록 알림을 보냅니다</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="notiMasterToggle" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <!-- 3회 루틴 시간 설정 카드 목록 -->
+              <div class="routine-noti-list" id="routineNotiList">
+                <!-- 아침 루틴 -->
+                <div class="routine-noti-item morning">
+                  <div class="noti-item-top">
+                    <div class="noti-item-title">
+                      <span class="item-emoji">☀️</span>
+                      <strong>아침 확언</strong>
+                      <span class="item-range">(06:00 ~ 11:00)</span>
+                    </div>
+                    <label class="toggle-switch small">
+                      <input type="checkbox" id="notiMorningToggle" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                  <div class="noti-item-controls">
+                    <label for="notiMorningTime">알림 시각</label>
+                    <input type="time" id="notiMorningTime" value="08:00" class="time-input">
+                  </div>
+                </div>
+
+                <!-- 점심 루틴 -->
+                <div class="routine-noti-item lunch">
+                  <div class="noti-item-top">
+                    <div class="noti-item-title">
+                      <span class="item-emoji">🌤️</span>
+                      <strong>점심 확언</strong>
+                      <span class="item-range">(11:00 ~ 17:00)</span>
+                    </div>
+                    <label class="toggle-switch small">
+                      <input type="checkbox" id="notiLunchToggle" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                  <div class="noti-item-controls">
+                    <label for="notiLunchTime">알림 시각</label>
+                    <input type="time" id="notiLunchTime" value="12:30" class="time-input">
+                  </div>
+                </div>
+
+                <!-- 저녁 루틴 -->
+                <div class="routine-noti-item evening">
+                  <div class="noti-item-top">
+                    <div class="noti-item-title">
+                      <span class="item-emoji">🌙</span>
+                      <strong>저녁 확언</strong>
+                      <span class="item-range">(17:00 ~ 24:00)</span>
+                    </div>
+                    <label class="toggle-switch small">
+                      <input type="checkbox" id="notiEveningToggle" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                  <div class="noti-item-controls">
+                    <label for="notiEveningTime">알림 시각</label>
+                    <input type="time" id="notiEveningTime" value="21:00" class="time-input">
+                  </div>
+                </div>
+              </div>
+
+              <!-- PRO 전용: 알림 수신 시 확언 음성 읽어주기 설정 -->
+              <div class="pro-noti-voice-card" id="proNotiVoiceCard">
+                <div class="pro-voice-info">
+                  <div class="pro-voice-title-row">
+                    <span class="pro-chip small">👑 PRO</span>
+                    <strong>확언 음성 리마인더</strong>
+                  </div>
+                  <p class="pro-voice-desc">알림 시각에 해당 확언을 스피커 음성으로 바로 읽어줍니다</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="notiTtsVoiceToggle">
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <!-- 알림 확언 음성 성별 선택 옵션 -->
+              <div class="noti-gender-select-row" id="notiGenderSelectRow">
+                <span class="noti-gender-label">🎙️ 음성 성별</span>
+                <div class="noti-gender-chips" role="radiogroup" aria-label="음성 성별 선택">
+                  <button type="button" class="noti-gender-chip active" id="notiGenderFemaleBtn" data-gender="female">
+                    <span>👩 차분한 여성</span>
+                  </button>
+                  <button type="button" class="noti-gender-chip" id="notiGenderMaleBtn" data-gender="male">
+                    <span>👨 신뢰감 남성</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- 스마트 스킵 옵션 -->
+              <div class="smart-skip-option">
+                <label class="checkbox-container">
+                  <input type="checkbox" id="notiSmartSkipCheck" checked>
+                  <span class="checkmark"></span>
+                  <span class="checkbox-text">
+                    <strong>스마트 건너뛰기:</strong> 오늘 이미 3회 완료한 루틴은 알림 울리지 않기
+                  </span>
+                </label>
+              </div>
+
+              <div class="noti-footer-actions">
+                <button type="button" id="notiTestBtn" class="test-noti-btn">
+                  <span>🔔</span> 테스트 알림 받기
+                </button>
+                <button type="button" id="saveNotiSettingsBtn" class="save-noti-btn">
+                  <span>✓</span> 설정 완료
+                </button>
+              </div>
+            </div>
+
+            <!-- 탭 2: 소리 및 일반 환경설정 -->
+            <div id="tab-opt-general" class="opt-panel">
+              <!-- 소리 & 햅틱 설정 그룹 -->
+              <div class="opt-section-group">
+                <h5 class="opt-group-title">🔊 소리 및 진동 피드백</h5>
+                
+                <div class="opt-setting-row">
+                  <div class="opt-setting-info">
+                    <strong>효과음 재생</strong>
+                    <p>미션 달성 팡파르, 나무 토닥이기 물방울 효과음을 재생합니다</p>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="soundEffectToggle" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+
+                <div class="opt-setting-row">
+                  <div class="opt-setting-info">
+                    <strong>햅틱 진동 피드백</strong>
+                    <p>버튼 터치, 루틴 완료 시 손끝에 전해지는 진동을 켭니다</p>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="hapticFeedbackToggle" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- ASMR 명상 사운드 설정 그룹 -->
+              <div class="opt-section-group asmr-opt-group">
+                <h5 class="opt-group-title">🎧 확언 명상 ASMR 사운드</h5>
+
+                <div class="opt-setting-row">
+                  <div class="opt-setting-info">
+                    <strong>앱 시작과 함께 자동 재생</strong>
+                    <p>앱을 실행할 때 선택된 모드의 ASMR 명상 사운드를 자동으로 켭니다</p>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="asmrAutoPlayToggle">
+                    <span class="slider"></span>
+                  </label>
+                </div>
+
+                <div class="opt-setting-row asmr-opt-mode-row">
+                  <div class="opt-setting-info">
+                    <strong>기본 사운드 모드</strong>
+                    <p id="optAsmrCurrentModeDesc">현재 선택: 토닥토닥 빗소리</p>
+                  </div>
+                  <div class="opt-asmr-chips" id="optAsmrChips">
+                    <button type="button" class="opt-asmr-chip active" data-sound="rain">
+                      <span class="chip-emoji">🌧️</span> 토닥토닥 빗소리
+                    </button>
+                    <button type="button" class="opt-asmr-chip" data-sound="fire">
+                      <span class="chip-emoji">🔥</span> 따뜻한 장작불 <span class="pro-chip small">👑 PRO</span>
+                    </button>
+                    <button type="button" class="opt-asmr-chip" data-sound="piano">
+                      <span class="chip-emoji">🧘</span> 은은한 명상음 <span class="pro-chip small">👑 PRO</span>
+                    </button>
+                    <button type="button" class="opt-asmr-chip" data-sound="waves">
+                      <span class="chip-emoji">🌊</span> 고요한 밤 파도 <span class="pro-chip small">👑 PRO</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="opt-setting-row asmr-opt-detail-row">
+                  <button type="button" id="openAsmrDetailModalBtn" class="opt-asmr-detail-btn">
+                    <span>🎚️</span> ASMR 볼륨 및 상세 조절 열기
+                  </button>
+                </div>
+              </div>
+
+              <!-- 홈 화면 감성 위젯 스튜디오 (PRO 기능) -->
+              <div class="opt-section-group widget-opt-group">
+                <div class="opt-group-header-with-badge">
+                  <h5 class="opt-group-title">📱 홈 화면 감성 위젯 스튜디오</h5>
+                  <span class="pro-chip small">👑 PRO</span>
+                </div>
+                <p class="opt-group-sub">스마트폰 바탕화면에서 항상 긍정 에너지를 공급받는 위젯 스타일을 설정합니다.</p>
+                
+                <div class="widget-theme-selector" id="widgetThemeSelector">
+                  <div class="widget-theme-card active" data-theme="simple">
+                    <div class="w-preview simple">
+                      <span class="w-title">☀️ 아침 확언</span>
+                      <span class="w-quote">"빛나는 하루"</span>
+                    </div>
+                    <span class="w-name">심플 화이트 (무료)</span>
+                  </div>
+                  <div class="widget-theme-card" data-theme="glass">
+                    <div class="w-preview glass">
+                      <span class="w-title">☀️ 아침 확언</span>
+                      <span class="w-quote">"빛나는 하루"</span>
+                    </div>
+                    <span class="w-name">글래스 <span class="pro-chip small">👑 PRO</span></span>
+                  </div>
+                  <div class="widget-theme-card" data-theme="gold">
+                    <div class="w-preview gold">
+                      <span class="w-title">👑 VIP 골드</span>
+                      <span class="w-quote">"풍요와 번영"</span>
+                    </div>
+                    <span class="w-name">다크골드 <span class="pro-chip small">👑 PRO</span></span>
+                  </div>
+                </div>
+
+                <button type="button" class="apply-widget-theme-btn" id="applyWidgetThemeBtn">
+                  <span>✨</span> 위젯 스타일 적용 및 홈화면 동기화
+                </button>
+
+                <button type="button" class="pin-widget-btn" id="pinWidgetBtn" style="margin-top:8px; width:100%; padding:11px; border-radius:12px; border:1px solid #10b981; background:rgba(16,185,129,0.08); color:#059669; font-weight:700; font-size:12.5px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px;">
+                  <span>📲</span> 홈 화면에 긍정 위젯 바로 추가하기
+                </button>
+              </div>
+
+              <!-- 데이터 백업 & 관리 그룹 -->
+              <div class="opt-section-group">
+                <h5 class="opt-group-title">💾 내 데이터 백업 & 복원</h5>
+                
+                <div class="data-manage-card">
+                  <div class="data-info-text">
+                    <p>정성껏 모은 <strong>나만의 확언</strong>, <strong>피워낸 정원 나무</strong>, <strong>실천 기록</strong>을 파일로 안전하게 보관하고 언제든 복원하세요.</p>
+                  </div>
+                  <div class="data-btn-row">
+                    <button type="button" id="backupDataBtn" class="data-action-btn primary">
+                      <span>📥</span> 데이터 백업 (내보내기)
+                    </button>
+                    <button type="button" id="restoreDataBtn" class="data-action-btn secondary">
+                      <span>📤</span> 데이터 복원 (가져오기)
+                    </button>
+                    <input type="file" id="restoreFileInput" accept=".json,application/json,text/plain,*/*" style="display: none;" />
+                  </div>
+                </div>
+
+                <div class="data-reset-row">
+                  <button type="button" id="resetAllDataBtn" class="data-reset-btn">
+                    <span>⚠️</span> 전체 실천 기록 초기화
+                  </button>
+                </div>
+              </div>
+
+              <!-- 설정 화면 네이티브 광고 배너 슬롯 -->
+              <div class="opt-section-group ad-section-group" id="settingsAdSection">
+                <div class="ad-banner-slot settings-ad-banner" id="settingsAdBanner">
+                  <div class="ad-badge-row">
+                    <span class="ad-label">AD</span>
+                    <button type="button" class="ad-remove-trigger-btn" id="adRemoveBtnSetting">광고 제거 ✨</button>
+                  </div>
+                  <div class="ad-banner-body" id="settingsAdContent">
+                    <span class="ad-icon">✨</span>
+                    <div class="ad-info">
+                      <strong class="ad-title">PosiEcho PRO 멤버십 준비 중</strong>
+                      <p class="ad-desc">광고 없는 클린 모드 & 프리미엄 테마·위젯 혜택</p>
+                    </div>
+                    <button type="button" class="ad-action-btn" id="settingsAdActionBtn">알아보기</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 앱 정보 그룹 -->
+              <div class="opt-section-group app-info-group">
+                <div class="app-version-box">
+                  <span class="app-badge">🌱 긍정 메아리 (PosiEcho)</span>
+                  <span class="version-text">v1.0.14 · 15일 만개 정원 & 365 확언</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 탭 3: 긍정의 나무 성장 튜토리얼 -->
+            <div id="tab-opt-tree" class="opt-panel">
+              <div class="tutorial-hero-card">
+                <div class="tutorial-hero-art">🌳✨</div>
+                <h4>긍정의 나무는 어떻게 키우나요?</h4>
+                <p>매일 소리 내어 확언을 낭독하고 필사할수록 내 안의 긍정 나무가 단단하게 뿌리를 내립니다.</p>
+              </div>
+
+              <!-- 5단계 성장 로드맵 -->
+              <div class="tree-stages-container">
+                <div class="stage-step-item">
+                  <div class="stage-icon-wrap lv1">🫘</div>
+                  <div class="stage-text-wrap">
+                    <div class="stage-name-row">
+                      <strong>1단계 · 발아</strong>
+                      <span class="stage-cond-tag">시작 단계</span>
+                    </div>
+                    <p class="stage-desc">마음속에 심어진 생명의 콩 씨앗이 단단한 껍질을 깨고 조용히 깨어나는(발아) 단계입니다.</p>
+                  </div>
+                </div>
+
+                <div class="stage-connector"></div>
+
+                <div class="stage-step-item">
+                  <div class="stage-icon-wrap lv2">🌱</div>
+                  <div class="stage-text-wrap">
+                    <div class="stage-name-row">
+                      <strong>2단계 · 어린 새싹</strong>
+                      <span class="stage-cond-tag highlight">누적 2일 달성</span>
+                    </div>
+                    <p class="stage-desc">2일 동안 아침·점심·저녁 루틴을 실천하면 대지 위로 귀여운 어린 새싹이 돋아납니다.</p>
+                  </div>
+                </div>
+
+                <div class="stage-connector"></div>
+
+                <div class="stage-step-item">
+                  <div class="stage-icon-wrap lv3">🌿</div>
+                  <div class="stage-text-wrap">
+                    <div class="stage-name-row">
+                      <strong>3단계 · 푸르른 잎새</strong>
+                      <span class="stage-cond-tag highlight">누적 5일 달성</span>
+                    </div>
+                    <p class="stage-desc">5일 동안 마음을 채우면 줄기가 굵어지고 싱그러운 잎들이 풍성해진 푸르른 잎새로 자라납니다.</p>
+                  </div>
+                </div>
+
+                <div class="stage-connector"></div>
+
+                <div class="stage-step-item">
+                  <div class="stage-icon-wrap lv4">🌳</div>
+                  <div class="stage-text-wrap">
+                    <div class="stage-name-row">
+                      <strong>4단계 · 울창한 나무</strong>
+                      <span class="stage-cond-tag highlight">누적 9일 달성</span>
+                    </div>
+                    <p class="stage-desc">9일 동안 지속하면 어떤 비바람에도 흔들리지 않는 든든하고 울창한 나무로 우뚝 섭니다.</p>
+                  </div>
+                </div>
+
+                <div class="stage-connector"></div>
+
+                <div class="stage-step-item">
+                  <div class="stage-icon-wrap lv5">🌸</div>
+                  <div class="stage-text-wrap">
+                    <div class="stage-name-row">
+                      <strong>5단계 · 만개한 나무</strong>
+                      <span class="stage-cond-tag max">누적 15일 달성 (완성!)</span>
+                    </div>
+                    <p class="stage-desc">15일 완주 시 온전한 습관이 완성되어 화사한 꽃과 결실을 피워내고 도감에 보관됩니다.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 15일 만개 후 졸업 & 이어심기 가이드 (신규) -->
+              <div class="tree-graduate-guide-card">
+                <div class="graduate-header">
+                  <span class="graduate-icon">🏛️🌸✨</span>
+                  <div class="graduate-text">
+                    <strong>15일 만개 후에는 어떻게 되나요?</strong>
+                    <p>한 화분이 15일 만개하면 졸업(완성)하여 정원에 보관됩니다.</p>
+                  </div>
+                </div>
+                <div class="graduate-steps-grid">
+                  <div class="grad-step">
+                    <span class="grad-badge">1</span>
+                    <p><strong>정원 도감 영구 보관</strong><br>피워낸 꽃나무가 [피워낸 정원 도감]에 영구 전시됩니다.</p>
+                  </div>
+                  <div class="grad-step">
+                    <span class="grad-badge">2</span>
+                    <p><strong>다음 씨앗 선택</strong><br>7가지 씨앗(해바라기, 무지개장미 등) 중 다음 나무 씨앗을 골라 새롭게 시작합니다.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 꿀팁 박스 -->
+              <div class="tutorial-tips-card">
+                <h5>💡 나무를 빠르게 키우는 3가지 비결</h5>
+                <ul class="tips-list">
+                  <li>
+                    <span class="tip-num">1</span>
+                    <div><strong>하루 3번 실천하고 황금 배지 받기</strong><br>아침·점심·저녁 3회를 모두 끝내면 캘린더에 황금 배지(🏅)가 새겨지고 성장 일수가 1일 올라갑니다.</div>
+                  </li>
+                  <li>
+                    <span class="tip-num">2</span>
+                    <div><strong>마이크로 소리 내어 낭독하기</strong><br>내 목소리로 직접 소리 내어 읽으면 잠재의식에 3배 더 강하게 각인됩니다.</div>
+                  </li>
+                  <li>
+                    <span class="tip-num">3</span>
+                    <div><strong>나만의 확언 등록하기</strong><br>[나만의 확언] 탭에서 원하는 시간대에 나만의 문장을 띄워보세요.</div>
+                  </li>
+                </ul>
+              </div>
+
+              <button type="button" id="tutorialGoMissionBtn" class="tutorial-action-btn">
+                <span>✨</span> 지금 오늘의 확언 낭독하러 가기
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. 3회 미션 달성 축하 팝업 모달 -->
+      <div id="successModal" class="modal-backdrop hidden" aria-hidden="true">
+        <div class="modal-dialog success-modal-dialog">
+          <button class="success-modal-close-x" id="closeSuccessModalBtn" aria-label="닫기">✕</button>
+          <div class="success-modal-content">
+            <div class="success-modal-emoji">🎉</div>
+            <h3 id="badgeRewardTitle" class="success-modal-title">아침 햇살 배지 획득!</h3>
+            <p id="badgeRewardDesc" class="success-modal-desc">오늘의 확언을 3회 온전히 체화했습니다.<br>캘린더에 칭찬 도장이 찍혔습니다!</p>
+            
+            <div class="success-tree-reward-card">
+              <span class="tree-reward-icon">🌱</span>
+              <div class="tree-reward-info">
+                <strong>긍정의 나무 경험치 획득!</strong>
+                <span>꾸준한 실천으로 단단한 나무로 자라납니다</span>
+              </div>
+            </div>
+
+            <div class="success-capsule-card" style="margin: 14px 0 6px; padding: 12px 14px; background: rgba(99, 102, 241, 0.08); border: 1px dashed var(--primary-accent); border-radius: 14px; text-align: center;">
+              <div style="font-size: 13px; font-weight: 600; color: var(--primary-accent); margin-bottom: 4px;">🎙️ 낭독 목소리 타임캡슐 보관</div>
+              <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 8px;">오늘 확언을 낭독한 내 생생한 목소리를 타임캡슐에 남겨보세요!</p>
+              <button id="successCapsuleRecordBtn" class="success-modal-btn-capsule" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; border: none; padding: 8px 18px; border-radius: 20px; font-weight: 600; font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);">
+                <span>🎙️</span> <span>오늘의 목소리 5초 남기기</span>
+              </button>
+            </div>
+
+            <div class="success-modal-actions">
+              <button class="success-modal-btn-primary" id="moveToCalendarBtn">📅 캘린더에서 도장 확인하기</button>
+              <button class="success-modal-btn-secondary" id="dismissSuccessBtn">확인 (닫기)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. 날짜별 일일 루틴 & 마음 상세 리포트 팝업 모달 -->
+      <div id="dayDetailModal" class="modal-backdrop hidden" aria-hidden="true">
+        <div class="modal-dialog day-detail-dialog">
+          <button class="day-modal-close-x" id="closeDayDetailModalBtn" aria-label="닫기">✕</button>
+          
+          <div class="day-detail-header">
+            <div class="day-header-badge-row">
+              <span class="day-detail-badge" id="modalDayBadge">🏅 하루 3회 달성</span>
+              <div class="day-detail-mood-pill" id="modalMoodPill">
+                <span class="detail-mood-label">💭 마음:</span>
+                <strong class="detail-mood-val" id="modalDayMood">기록 없음</strong>
+              </div>
+            </div>
+            <h3 id="modalDayDate">2026년 9월 26일 (토)</h3>
+          </div>
+
+          <div class="day-detail-body">
+            <!-- 그날의 확언 문장 & 올인원 음성 액션 (아침 · 점심 · 저녁) -->
+            <div class="day-detail-quote-box">
+              <div class="detail-quote-header-row">
+                <span class="detail-quote-badge">📖 오늘의 3회 확언 코스</span>
+                <span class="detail-quote-subbadge">👑 PRO 낭독 타임캡슐</span>
+              </div>
+              <div class="detail-quotes-list" id="modalQuotesList">
+                <!-- 아침 -->
+                <div class="detail-quote-session-card morning" id="modalQuoteCardMorning">
+                  <div class="quote-session-tag">
+                    <div class="tag-title-group">
+                      <span class="tag-title">☀️ 아침 확언</span>
+                    </div>
+                    <span class="quote-done-status" id="modalMorningDoneTag">미완료</span>
+                  </div>
+                  <p class="detail-quote-session-text" id="modalMorningQuote">"..."</p>
+                  <div class="session-voice-actions">
+                    <button type="button" class="session-voice-btn play-btn" id="modalPlayBtnMorning" data-session="morning">
+                      <span class="btn-icon">🎧</span>
+                      <span class="btn-label">성우 듣기</span>
+                    </button>
+                    <button type="button" class="session-voice-btn record-btn" id="modalRecordBtnMorning" data-session="morning">
+                      <span class="btn-icon">🎙️</span>
+                      <span class="btn-label">녹음</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- 점심 -->
+                <div class="detail-quote-session-card lunch" id="modalQuoteCardLunch">
+                  <div class="quote-session-tag">
+                    <div class="tag-title-group">
+                      <span class="tag-title">🌤️ 점심 확언</span>
+                    </div>
+                    <span class="quote-done-status" id="modalLunchDoneTag">미완료</span>
+                  </div>
+                  <p class="detail-quote-session-text" id="modalLunchQuote">"..."</p>
+                  <div class="session-voice-actions">
+                    <button type="button" class="session-voice-btn play-btn" id="modalPlayBtnLunch" data-session="lunch">
+                      <span class="btn-icon">🎧</span>
+                      <span class="btn-label">성우 듣기</span>
+                    </button>
+                    <button type="button" class="session-voice-btn record-btn" id="modalRecordBtnLunch" data-session="lunch">
+                      <span class="btn-icon">🎙️</span>
+                      <span class="btn-label">녹음</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- 저녁 -->
+                <div class="detail-quote-session-card evening" id="modalQuoteCardEvening">
+                  <div class="quote-session-tag">
+                    <div class="tag-title-group">
+                      <span class="tag-title">🌙 저녁 확언</span>
+                    </div>
+                    <span class="quote-done-status" id="modalEveningDoneTag">미완료</span>
+                  </div>
+                  <p class="detail-quote-session-text" id="modalEveningQuote">"..."</p>
+                  <div class="session-voice-actions">
+                    <button type="button" class="session-voice-btn play-btn" id="modalPlayBtnEvening" data-session="evening">
+                      <span class="btn-icon">🎧</span>
+                      <span class="btn-label">성우 듣기</span>
+                    </button>
+                    <button type="button" class="session-voice-btn record-btn" id="modalRecordBtnEvening" data-session="evening">
+                      <span class="btn-icon">🎙️</span>
+                      <span class="btn-label">녹음</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="day-detail-actions">
+            <button type="button" id="modalGoMissionBtn" class="day-detail-action-btn primary">
+              <span>✨</span> 오늘 확언 실천하러 가기
+            </button>
+            <button type="button" id="dismissDayDetailBtn" class="day-detail-action-btn secondary">
+              확인 (닫기)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. ASMR 앰비언스 명상 사운드 모달 -->
+      <div id="asmrModal" class="modal-backdrop hidden" aria-hidden="true">
+        <div class="modal-dialog asmr-modal-dialog">
+          <div class="modal-header">
+            <div class="modal-title-group">
+              <span class="modal-title-icon">🎧</span>
+              <h3>확언 명상 ASMR 사운드</h3>
+            </div>
+            <button id="closeAsmrModalBtn" class="modal-close-btn" aria-label="닫기">✕</button>
+          </div>
+          <div class="modal-body asmr-modal-body">
+            <p class="asmr-modal-desc">은은한 자연의 소리와 함께 마음을 비우고 긍정 확언에 온전히 집중해보세요.</p>
+            
+            <!-- 사운드 선택 카드 그리드 -->
+            <div class="asmr-sound-grid">
+              <button type="button" class="asmr-track-card active" data-sound="rain">
+                <span class="track-icon">🌧️</span>
+                <div class="track-info">
+                  <strong class="track-title">토닥토닥 빗소리</strong>
+                  <span class="track-desc">잡념을 씻는 부드러운 빗방울 (무료 기본)</span>
+                </div>
+                <span class="track-status-pill">선택</span>
+              </button>
+              <button type="button" class="asmr-track-card" data-sound="fire">
+                <span class="track-icon">🔥</span>
+                <div class="track-info">
+                  <strong class="track-title">따뜻한 장작불 <span class="pro-chip small">👑 PRO</span></strong>
+                  <span class="track-desc">아늑하고 포근한 모닥불 소리</span>
+                </div>
+                <span class="track-status-pill">선택</span>
+              </button>
+              <button type="button" class="asmr-track-card" data-sound="piano">
+                <span class="track-icon">🧘</span>
+                <div class="track-info">
+                  <strong class="track-title">은은한 명상 음악 <span class="pro-chip small">👑 PRO</span></strong>
+                  <span class="track-desc">432Hz 힐링 앰비언트 & 싱잉볼</span>
+                </div>
+                <span class="track-status-pill">선택</span>
+              </button>
+              <button type="button" class="asmr-track-card" data-sound="waves">
+                <span class="track-icon">🌊</span>
+                <div class="track-info">
+                  <strong class="track-title">고요한 밤 파도 <span class="pro-chip small">👑 PRO</span></strong>
+                  <span class="track-desc">깊은 호흡을 돕는 밀물과 썰물</span>
+                </div>
+                <span class="track-status-pill">선택</span>
+              </button>
+            </div>
+
+            <!-- 볼륨 슬라이더 컨트롤 -->
+            <div class="asmr-volume-box">
+              <div class="volume-header">
+                <span class="volume-label">🔈 볼륨 조절</span>
+                <strong class="volume-value" id="asmrVolumePercent">35%</strong>
+              </div>
+              <input type="range" id="asmrVolumeSlider" min="0" max="100" value="35" class="asmr-range-slider" />
+            </div>
+
+            <!-- 스마트 오디오 덕킹 옵션 -->
+            <div class="asmr-option-row">
+              <label class="checkbox-container">
+                <input type="checkbox" id="asmrDuckingToggle" checked>
+                <span class="checkmark"></span>
+                <span class="checkbox-text">
+                  <strong>오디오 자동 조절 (Ducking):</strong> 낭독이나 선행듣기 시 소리를 자동으로 은은하게 줄입니다
+                </span>
+              </label>
+            </div>
+
+            <!-- 앱 시작 시 자동 재생 옵션 -->
+            <div class="asmr-option-row">
+              <label class="checkbox-container">
+                <input type="checkbox" id="asmrModalAutoPlayToggle">
+                <span class="checkmark"></span>
+                <span class="checkbox-text">
+                  <strong>앱 시작과 함께 자동 재생:</strong> 앱을 실행할 때 선택된 ASMR 사운드를 자동으로 켭니다
+                </span>
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer asmr-modal-footer">
+            <button type="button" id="asmrStopBtn" class="asmr-stop-btn">
+              <span>⏹️</span> 사운드 끄기
+            </button>
+            <button type="button" id="asmrApplyBtn" class="asmr-apply-btn">
+              <span>✨</span> 감상하기
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. 새로운 씨앗 심기 모달 -->
+      <div id="seedSelectModal" class="modal-backdrop hidden" aria-hidden="true">
+        <div class="modal-dialog seed-select-modal-dialog">
+          <div class="modal-header">
+            <div class="modal-title-group">
+              <span class="modal-title-icon">🌱</span>
+              <h3>새로운 씨앗 심기</h3>
+            </div>
+            <button id="closeSeedModalBtn" class="modal-close-btn" aria-label="닫기">✕</button>
+          </div>
+          <div class="modal-body seed-modal-body">
+            <div class="seed-modal-hero">
+              <div class="seed-hero-emoji">🌸 ➔ 🌱</div>
+              <h4>어떤 마음의 씨앗을 키워볼까요?</h4>
+              <p>15일 동안 하루 3회 확언을 달성하면 아름다운 꽃과 나무로 만개합니다. 원하는 마음의 테마를 선택해보세요.</p>
+            </div>
+            <div class="seed-list-grid" id="seedListGrid">
+              <!-- JS 동적 렌더링 -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. 나의 긍정 정원 도감 갤러리 모달 -->
+      <div id="gardenGalleryModal" class="modal-backdrop hidden" aria-hidden="true">
+        <div class="modal-dialog garden-modal-dialog">
+          <div class="modal-header">
+            <div class="modal-title-group">
+              <span class="modal-title-icon">🏛️</span>
+              <h3>나의 긍정 정원 (Posi-Garden)</h3>
+            </div>
+            <button id="closeGardenModalBtn" class="modal-close-btn" aria-label="닫기">✕</button>
+          </div>
+          <div class="modal-body garden-modal-body">
+            <!-- 정원 요약 통계 배너 -->
+            <div class="garden-summary-card">
+              <div class="garden-summary-item">
+                <span class="garden-stat-label">완성한 나무</span>
+                <strong class="garden-stat-val" id="gardenTotalTreesCount">0그루</strong>
+              </div>
+              <div class="garden-summary-sep"></div>
+              <div class="garden-summary-item">
+                <span class="garden-stat-label">누적 달성</span>
+                <strong class="garden-stat-val" id="gardenTotalDaysCount">0일</strong>
+              </div>
+              <div class="garden-summary-sep"></div>
+              <div class="garden-summary-item">
+                <span class="garden-stat-label">올해의 숲</span>
+                <strong class="garden-stat-val" id="gardenYearProgress">0 / 12</strong>
+              </div>
+            </div>
+
+            <!-- 수집한 나무 컬렉션 그리드 -->
+            <h4 class="garden-section-title">🌿 내가 피워낸 나무 컬렉션</h4>
+            <div class="garden-collection-grid" id="gardenCollectionGrid">
+              <!-- JS 동적 렌더링 -->
+            </div>
+          </div>
+          <div class="modal-footer garden-modal-footer">
+            <button type="button" id="openPlantFromGardenBtn" class="garden-new-plant-btn">
+              <span>🌱</span> 새 씨앗 심으러 가기
+            </button>
+            <button type="button" id="dismissGardenModalBtn" class="day-detail-action-btn secondary">
+              닫기
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. 광고 제거 및 PRO 멤버십 안내 모달 (Paywall) -->
+      <div id="proModal" class="modal-backdrop hidden" aria-hidden="true">
+        <div class="modal-dialog pro-modal-dialog">
+          <div class="modal-header">
+            <div class="modal-title-group">
+              <span class="modal-title-icon">👑</span>
+              <h3>PosiEcho PRO 멤버십</h3>
+            </div>
+            <button id="closeProModalBtn" class="modal-close-btn" aria-label="닫기">✕</button>
+          </div>
+          <div class="modal-body pro-modal-body">
+            <div class="pro-hero-banner">
+              <div class="pro-hero-icon">🌿✨</div>
+              <h4>매일 아침 나를 바꾸는 긍정의 힘</h4>
+              <p id="proStatusNotice">광고 없는 온전한 몰입과 PRO 프리미엄 혜택을 누려보세요.</p>
+            </div>
+
+            <!-- 플랜 선택 카드 (4-Tier) -->
+            <div class="pro-plans-selection" id="proPlansSelection">
+              <!-- 플랜 1: 평생권 (추천 1위) -->
+              <div class="pro-plan-option selected" data-plan="posiecho_pro_lifetime" data-type="inapp" data-price="16,900원" data-title="평생 VIP 패스">
+                <div class="plan-tag-hot">👑 추천 · 단 1회 결제</div>
+                <div class="plan-option-main">
+                  <div class="plan-name-group">
+                    <strong class="plan-name">평생 VIP 패스</strong>
+                    <span class="plan-sub">평생 모든 PRO 혜택 영구 소장</span>
+                  </div>
+                  <div class="plan-price-group">
+                    <span class="plan-discount-badge">한정 특가</span>
+                    <strong class="plan-price-val">16,900원</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 플랜 2: 1년 정기 구독 -->
+              <div class="pro-plan-option" data-plan="posiecho_pro_yearly" data-type="subs" data-price="14,900원/년" data-title="1년 정기 구독">
+                <div class="plan-tag-save">월 1,240원 (35% 절약)</div>
+                <div class="plan-option-main">
+                  <div class="plan-name-group">
+                    <strong class="plan-name">1년 정기 구독</strong>
+                    <span class="plan-sub">1년간 모든 PRO 혜택 이용</span>
+                  </div>
+                  <div class="plan-price-group">
+                    <strong class="plan-price-val">14,900원 <small>/ 년</small></strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 플랜 3: 월 정기 구독 -->
+              <div class="pro-plan-option" data-plan="posiecho_pro_monthly" data-type="subs" data-price="1,900원/월" data-title="월 정기 구독">
+                <div class="plan-option-main">
+                  <div class="plan-name-group">
+                    <strong class="plan-name">월 정기 구독</strong>
+                    <span class="plan-sub">부담 없는 시작 · 언제든 해지 가능</span>
+                  </div>
+                  <div class="plan-price-group">
+                    <strong class="plan-price-val">1,900원 <small>/ 월</small></strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 플랜 4: 광고 제거 단건 -->
+              <div class="pro-plan-option" data-plan="posiecho_remove_ads" data-type="inapp" data-price="3,900원" data-title="심플 광고 영구 제거">
+                <div class="plan-option-main">
+                  <div class="plan-name-group">
+                    <strong class="plan-name">심플 광고 영구 제거</strong>
+                    <span class="plan-sub">모든 배너 광고 100% 제거</span>
+                  </div>
+                  <div class="plan-price-group">
+                    <strong class="plan-price-val">3,900원 <small>/ 평생</small></strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRO 혜택 체크리스트 -->
+            <div class="pro-features-card">
+              <h5>✨ PRO 플랜 포함 혜택</h5>
+              <ul class="pro-features-list">
+                <li><span class="feat-icon">🎙️</span> <span><strong>3회 이상 무제한 낭독 연습</strong> (자유 음성 발화 & 실시간 유사도 분석)</span></li>
+                <li><span class="feat-icon">🚫</span> <span><strong>모든 배너 광고 100% 영구 제거</strong> (클린 모드)</span></li>
+                <li><span class="feat-icon">📱</span> <span><strong>스마트폰 감성 확언 위젯</strong> (시간대별 자동 교체 & 사진 배경)</span></li>
+                <li><span class="feat-icon">✍️</span> <span><strong>나만의 확언 무제한 저장</strong> & 카테고리 태그 분류</span></li>
+                <li><span class="feat-icon">🌳</span> <span><strong>광고 없는 정원 영양제</strong> (성장 2배 가속) & 황금/은하수 나무 해금</span></li>
+                <li><span class="feat-icon">🎧</span> <span><strong>4대 힐링 사운드 팩</strong> (모닥불, 밤바다 파도, 숲속, 빗소리)</span></li>
+                <li><span class="feat-icon">💾</span> <span><strong>클라우드 데이터 원터치 백업</strong> & 안전 복원</span></li>
+              </ul>
+            </div>
+
+            <!-- 결제 CTA 버튼 -->
+            <div class="pro-action-group">
+              <button type="button" id="buyPlanBtn" class="pro-primary-buy-btn">
+                <span id="buyBtnIcon">👑</span> <span id="buyBtnText">16,900원으로 평생 소장하기</span>
+              </button>
+              <div class="pro-sub-actions">
+                <button type="button" id="restorePurchasesBtn" class="pro-text-action-btn">
+                  구매 내역 복원
+                </button>
+              </div>
+              <p class="google-billing-notice">🔒 Google Play를 통한 안전한 결제 · 정기 구독은 Google Play 스토어 [결제 및 정기 결제]에서 언제든 위약금 없이 해지 가능합니다.</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="dismissProModalBtn" class="day-detail-action-btn secondary">
+              닫기
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 데이터 복원 안내 모달 -->
+      <div id="restoreDataModal" class="modal-backdrop hidden" aria-hidden="true">
+        <div class="modal-dialog restore-modal-dialog">
+          <div class="modal-header">
+            <div class="modal-title-group">
+              <span class="modal-title-icon">📤</span>
+              <h4 class="modal-title">데이터 복원 (가져오기)</h4>
+            </div>
+            <button id="closeRestoreModalBtn" class="modal-close-btn" aria-label="닫기">✕</button>
+          </div>
+          <div class="modal-body restore-modal-body">
+            <p class="restore-guide-text">보관해 둔 백업 파일(JSON)을 선택하거나 백업 텍스트를 붙여넣어 소중한 실천 기록과 정원을 복원하세요.</p>
+            
+            <div class="restore-method-box">
+              <h6 class="restore-method-title">방법 1. 백업 파일 선택 (.json)</h6>
+              <button type="button" id="selectRestoreFileBtn" class="data-action-btn primary" style="width:100%; justify-content:center; padding:12px; font-weight:700;">
+                <span>📁</span> 백업 파일 불러오기 (.json)
+              </button>
+            </div>
+
+            <div class="restore-divider">
+              <span>또는</span>
+            </div>
+
+            <div class="restore-method-box">
+              <h6 class="restore-method-title">방법 2. 백업 텍스트 직접 붙여넣기</h6>
+              <textarea id="restoreJsonTextarea" class="restore-textarea" placeholder="백업 파일의 JSON 텍스트 내용을 여기에 붙여넣어주세요..." rows="5"></textarea>
+              <div class="restore-paste-row" style="display:flex; gap:8px; margin-top:8px;">
+                <button type="button" id="pasteFromClipboardBtn" class="data-action-btn secondary" style="flex:1; justify-content:center;">
+                  <span>📋</span> 클립보드 붙여넣기
+                </button>
+                <button type="button" id="applyJsonRestoreBtn" class="data-action-btn primary" style="flex:1; justify-content:center;">
+                  <span>✨</span> 텍스트로 즉시 복원
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="dismissRestoreModalBtn" class="day-detail-action-btn secondary">
+              닫기
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="quotes-data.js"></script>
+  <script src="app.js?v=1.0.14"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(err => {
+          console.warn('SW register info:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

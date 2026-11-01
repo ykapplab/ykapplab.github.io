@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>찰나 (CHALNA) - 스치는 순간을 담는 가장 특별한 1초 라이프로그</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="찰나 (CHALNA) - 스치는 순간을 담는 가장 특별한 1초 라이프로그" />
+  <meta name="description" content="단상, 사진, 영상, AI 음성 녹음까지 1초 만에 박제하는 아날로그 감성 라이프로그 앱. 발자취 지도, 깃허브 잔디 캘린더, 1080p 숏폼 무비, 감성 PDF 포켓북 출판을 경험해보세요." />
+  <meta name="keywords" content="찰나, CHALNA, 라이프로그, 다이어리, 일기 앱, 타임로그, 타임라인, 발자취 지도, 잔디 캘린더, 옵시디언 일기, Gemini AI, 오프라인 일기" />
+  <meta name="author" content="CHALNA Team" />
+
+  <!-- Open Graph / Facebook / KakaoTalk -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ykapplab.github.io/chalna/" />
+  <meta property="og:title" content="찰나 (CHALNA) - 스치는 순간을 담는 가장 특별한 방법" />
+  <meta property="og:description" content="1초 만에 위젯으로 박제하고, 감성 타임라인과 발자취 지도, 1080p 시네마 무비로 엮어주는 아날로그 라이프로그 앱." />
+  <meta property="og:image" content="assets/images/feature_graphic_1024x500.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="찰나 (CHALNA) - 감성 라이프로그 앱" />
+  <meta property="twitter:description" content="생각나는 순간 1초 만에 위젯으로 남기고 나만의 감성 다이어리와 지도, 무비로 엮어보세요." />
+  <meta property="twitter:image" content="assets/images/feature_graphic_1024x500.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/chalna_logo_transparent.png" />
+  <link rel="apple-touch-icon" href="assets/images/chalna_logo_transparent.png" />
+
+  <!-- Google Fonts & Pretendard -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Ambient Background Glows -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="ambient-circle circle-1"></div>
+    <div class="ambient-circle circle-2"></div>
+    <div class="ambient-circle circle-3"></div>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#" class="brand-logo" aria-label="찰나 홈으로 이동">
+        <img src="assets/images/chalna_logo_transparent.png" alt="찰나 로고" width="36" height="36" />
+        <span class="brand-text">
+          찰나 <span class="brand-sub">CHALNA</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#highlights">핵심 가치</a></li>
+        <li><a href="#features">주요 기능</a></li>
+        <li><a href="#gallery">갤러리</a></li>
+        <li><a href="#trust">보안 & 프라이버시</a></li>
+        <li><a href="#faq">자주 묻는 질문</a></li>
+        <li><a href="manual.html" style="color: var(--text-accent); font-weight: 600;"><i class="fas fa-book-open"></i> 사용자 설명서</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="테마 변경">
+          <i class="fas fa-sun"></i>
+        </button>
+
+        <!-- CTA Download Button -->
+        <a href="#download" class="btn-download-nav">
+          <i class="fab fa-google-play"></i>
+          <span>앱 받기</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="메뉴 열기">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Hero Section -->
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <!-- Hero Left Column: Copy & CTAs -->
+        <div class="hero-content">
+          <div class="badge-tag">
+            <i class="fas fa-sparkles"></i>
+            <span>일상을 예술로 만드는 1초 라이프로그</span>
+          </div>
+
+          <h1 class="hero-title">
+            스치는 순간을 담는<br />
+            가장 특별한 방법, <br />
+            <span class="highlight">찰나 (CHALNA)</span>
+          </h1>
+
+          <p class="hero-description">
+            생각, 사진, 영상, 목소리까지—번거로운 앱 실행 없이 홈 위젯에서 1초 만에 박제하세요.
+            소중한 발자취 지도와 깃허브 잔디 캘린더, 감성 숏폼 무비가 당신의 하루를 아름답게 기억합니다.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#download" class="btn btn-primary">
+              <i class="fab fa-google-play"></i>
+              <span>Google Play에서 다운로드</span>
+            </a>
+            <a href="#features" class="btn btn-secondary">
+              <i class="fas fa-compass"></i>
+              <span>기능 둘러보기</span>
+            </a>
+          </div>
+
+          <!-- Key Metrics / Proof Points -->
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <span class="metric-val">1초</span>
+              <span class="metric-label">홈 위젯 즉시 기록</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-val">100%</span>
+              <span class="metric-label">로컬 암호화 보안</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-val">AI STT</span>
+              <span class="metric-label">Gemini 고정밀 변환</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-val">1080p</span>
+              <span class="metric-label">감성 시네마 렌더링</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Phone Mockup Visual -->
+        <div class="hero-visual">
+          <div class="phone-mockup-wrap">
+            <div class="phone-mockup">
+              <div class="phone-screen">
+                <img src="assets/images/screenshot_02_timeline.png" alt="찰나 타임라인 피드 화면" loading="eager" />
+              </div>
+            </div>
+
+            <!-- Floating Mini Badges -->
+            <div class="floating-badge badge-1">
+              <div class="badge-icon">
+                <i class="fas fa-microphone-lines"></i>
+              </div>
+              <div>
+                <div class="badge-text-title">Gemini AI 음성 인식</div>
+                <div class="badge-text-desc">말하면 텍스트로 즉시 변환</div>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-2">
+              <div class="badge-icon">
+                <i class="fas fa-location-dot"></i>
+              </div>
+              <div>
+                <div class="badge-text-title">발자취 여정 지도</div>
+                <div class="badge-text-desc">사진의 GPS 위치 자동 연결</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Highlights Section (4 Cards Grid) -->
+    <section class="section" id="highlights">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-tag">
+            <i class="fas fa-bolt"></i>
+            <span>WHY CHALNA</span>
+          </div>
+          <h2 class="section-title">
+            기록의 번거로움을 지우고, <br />
+            <span class="gradient-text">본질적인 감동만 남겼습니다</span>
+          </h2>
+          <p class="section-desc">
+            복잡한 설정이나 로그인 없이 스마트폰을 켜자마자 내 생각과 순간을 담아냅니다.
+          </p>
+        </div>
+
+        <div class="highlights-grid">
+          <!-- Card 1 -->
+          <div class="highlight-card">
+            <div class="card-icon">
+              <i class="fas fa-stopwatch"></i>
+            </div>
+            <h3 class="card-title">1초 퀵 위젯</h3>
+            <p class="card-desc">
+              앱을 열 필요조차 없습니다. 홈 화면 4×2, 4×1 위젯에서 터치 한 번으로 메모, 사진, 음성을 즉시 남기세요.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="highlight-card">
+            <div class="card-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3 class="card-title">Gemini AI 실시간 STT</h3>
+            <p class="card-desc">
+              운전 중이거나 걷는 동안 떠오른 아이디어를 목소리로 녹음하면, AI가 오타 없이 또렷한 텍스트로 자동 받아적어 줍니다.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="highlight-card">
+            <div class="card-icon">
+              <i class="fas fa-map-location-dot"></i>
+            </div>
+            <h3 class="card-title">발자취 여정 지도</h3>
+            <p class="card-desc">
+              사진에 깃든 위치(GPS)를 자동으로 추출하여 여행 동선과 장소별 사진 핀을 아름다운 지도 위에 한눈에 그려줍니다.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="highlight-card">
+            <div class="card-icon">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <h3 class="card-title">365일 잔디 캘린더</h3>
+            <p class="card-desc">
+              개발자의 깃허브 잔디처럼 매일의 기록 여정을 시각화합니다. 포토 캘린더와 연속 기록 스트릭으로 습관을 완성하세요.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Feature Showcase Section (Tabs) -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-tag">
+            <i class="fas fa-layer-group"></i>
+            <span>FEATURE SHOWCASE</span>
+          </div>
+          <h2 class="section-title">
+            순간을 모아, <span class="gradient-text">영원으로 엮어내는 도구들</span>
+          </h2>
+          <p class="section-desc">
+            찰나가 제공하는 6가지 시그니처 경험을 직접 확인해 보세요.
+          </p>
+        </div>
+
+        <div class="showcase-container">
+          <!-- Tab Navigation -->
+          <div class="showcase-tabs" role="tablist">
+            <button type="button" class="tab-btn active" data-tab="widget">
+              <i class="fas fa-window-maximize"></i> 1초 퀵 위젯
+            </button>
+            <button type="button" class="tab-btn" data-tab="timeline">
+              <i class="fas fa-timeline"></i> 감성 타임라인
+            </button>
+            <button type="button" class="tab-btn" data-tab="map">
+              <i class="fas fa-map-marked-alt"></i> 발자취 지도
+            </button>
+            <button type="button" class="tab-btn" data-tab="calendar">
+              <i class="fas fa-calendar-check"></i> 잔디 & 캘린더
+            </button>
+            <button type="button" class="tab-btn" data-tab="publish">
+              <i class="fas fa-film"></i> 찰나무비 & 출판
+            </button>
+            <button type="button" class="tab-btn" data-tab="custom">
+              <i class="fas fa-palette"></i> 테마 & 보안
+            </button>
+          </div>
+
+          <!-- Tab Panel 1: Widget -->
+          <div class="showcase-panel active" id="panel-widget">
+            <div class="panel-content">
+              <h3>스마트폰 홈 화면에서<br />터치 한 번으로 즉시 박제</h3>
+              <p>
+                번거롭게 앱 아이콘을 찾고 로딩을 기다릴 필요가 없습니다. 홈 화면 4×1, 4×2 크기의 감성 위젯에서 생각나는 즉시 단상, 무음 스냅, 미니 클립, 음성 녹음을 기록할 수 있습니다.
+              </p>
+              <ul class="feature-bullets">
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>단상 메모 & To-Do 체크리스트 원터치 작성</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>최대 10장 무음 고속 촬영 및 콜라주 스냅</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>위젯 테마(투명도, 다크/라이트) 완벽 커스텀</span>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-visual">
+              <div class="screenshot-frame" data-lightbox-src="assets/images/screenshot_01_quick_widget.png" data-lightbox-caption="01 · 1초 퀵 위젯 (홈 화면 즉시 기록)">
+                <img src="assets/images/screenshot_01_quick_widget.png" alt="1초 퀵 위젯 스크린샷" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Panel 2: Timeline -->
+          <div class="showcase-panel" id="panel-timeline">
+            <div class="panel-content">
+              <h3>단상, 사진, 영상, 음성이<br />하나의 흐름으로 이어지는 피드</h3>
+              <p>
+                모든 찰나는 시간 역순으로 아름답게 나열됩니다. 메모 본문 속의 체크박스는 탭 한 번으로 완료선을 그을 수 있고, 위치 정보가 깃든 미니 맵 카드에서 원터치 내비게이션으로 길찾기까지 지원합니다.
+              </p>
+              <ul class="feature-bullets">
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>Gemini AI 기반 음성 녹음 텍스트 자동 변환(STT)</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>해시태그(#여행, #카페) 자동 추출 및 스마트 필터</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>길게 눌러 텍스트 원터치 복사 & '생각 덧붙이기' 스레드</span>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-visual">
+              <div class="screenshot-frame" data-lightbox-src="assets/images/screenshot_02_timeline.png" data-lightbox-caption="02 · 감성 타임라인 피드">
+                <img src="assets/images/screenshot_02_timeline.png" alt="감성 타임라인 피드 스크린샷" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Panel 3: Map -->
+          <div class="showcase-panel" id="panel-map">
+            <div class="panel-content">
+              <h3>내가 머문 모든 공간이<br />생생한 여행 지도로 피어납니다</h3>
+              <p>
+                구글 지도 기반의 발자취 클러스터링으로 내가 다녀간 동네와 국내외 여행지를 감각적으로 시각화합니다. 핀을 터치하면 그 장소에서 찍은 찰나 사진과 단상을 곧바로 열람할 수 있습니다.
+              </p>
+              <ul class="feature-bullets">
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>사진 EXIF 메타데이터에서 GPS 위치 자동 추출</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>네이버 지도, 카카오맵, 티맵, 구글맵 원터치 길찾기 연동</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>이동 동선 폴리라인 연결 및 지도 스타일 전환</span>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-visual">
+              <div class="screenshot-frame" data-lightbox-src="assets/images/screenshot_03_map.png" data-lightbox-caption="03 · 여정 지도 (이동 동선 및 장소별 핀)">
+                <img src="assets/images/screenshot_03_map.png" alt="여정 지도 스크린샷" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Panel 4: Calendar -->
+          <div class="showcase-panel" id="panel-calendar">
+            <div class="panel-content">
+              <h3>깃허브 잔디밭과 포토 캘린더로<br />기록의 성취감을 매일 만끽하세요</h3>
+              <p>
+                매일 기록을 남길수록 초록빛 잔디가 풍성하게 채워집니다. 연속 기록(Streak) 달성 현황과 월별 대표 사진 썸네일로 가득한 포토 캘린더가 당신의 소중한 한 해를 돌아보게 돕습니다.
+              </p>
+              <ul class="feature-bullets">
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>365일 GitHub 스타일 Heatmap 잔디 밭</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>일자별 대표 사진이 깃든 감성 포토 캘린더</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>월간/연간 기록 통계 차트 및 인사이트 제공</span>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-visual">
+              <div class="screenshot-frame" data-lightbox-src="assets/images/screenshot_04_calendar_jandi.png" data-lightbox-caption="04 · 잔디 & 캘린더 (스트릭 + 포토 캘린더)">
+                <img src="assets/images/screenshot_04_calendar_jandi.png" alt="잔디 캘린더 스크린샷" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Panel 5: Publish -->
+          <div class="showcase-panel" id="panel-publish">
+            <div class="panel-content">
+              <h3>내 일상이 시네마 영화와<br />매거진 포켓북으로 탄생합니다</h3>
+              <p>
+                원하는 기간의 기록을 선택하고 버튼을 누르면, 감성 BGM과 타이틀 자막이 어우러진 1080p 릴스 비디오(`찰나무비`)와 실제 인쇄 가능한 A4/문고판 `PDF 포켓북`이 1분 만에 완성됩니다.
+              </p>
+              <ul class="feature-bullets">
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>1080p Full HD 감성 숏폼/릴스 비디오 자동 렌더링</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>5대 테마 감성 PDF 전자책 및 인쇄용 포켓북 출판</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>옵시디언(Obsidian) & 노션(Notion) 보관용 오디오 Markdown 내보내기</span>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-visual">
+              <div class="screenshot-frame" data-lightbox-src="assets/images/screenshot_08_chalna_movie.png" data-lightbox-caption="08 · 찰나 무비 (감성 BGM 1080p 시네마)">
+                <img src="assets/images/screenshot_08_chalna_movie.png" alt="찰나 무비 스크린샷" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Panel 6: Custom & Security -->
+          <div class="showcase-panel" id="panel-custom">
+            <div class="panel-content">
+              <h3>8대 감성 테마팩과<br />철통같은 생체 보안 잠금</h3>
+              <p>
+                미드나잇 다크, 소프트 크림, 빈티지 페이퍼 등 8가지 전용 테마와 6종 아날로그 손글씨 서체로 앱을 커스텀하세요. 지문 인식과 PIN 잠금으로 내밀한 사생활을 안전하게 지킵니다.
+              </p>
+              <ul class="feature-bullets">
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>온디바이스 생체인식(지문, 얼굴) 및 4자리 PIN 잠금</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>8가지 테마 컬러 & 나눔손글씨, 마루부리 등 감성 서체</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span>Google Drive 비공개 자동 백업 및 무손실 ZIP 기기 이전</span>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-visual">
+              <div class="screenshot-frame" data-lightbox-src="assets/images/screenshot_05_themes_fonts.png" data-lightbox-caption="05 · 테마 & 폰트 커스터마이징">
+                <img src="assets/images/screenshot_05_themes_fonts.png" alt="테마 및 보안 스크린샷" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Screenshot Gallery Grid -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-tag">
+            <i class="fas fa-images"></i>
+            <span>SCREENSHOTS</span>
+          </div>
+          <h2 class="section-title">
+            한 화면 한 화면, <br />
+            <span class="gradient-text">정성을 담아 빚어냈습니다</span>
+          </h2>
+          <p class="section-desc">
+            카드를 클릭하시면 고해상도 전체 화면으로 감상하실 수 있습니다.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Item 1 -->
+          <div class="gallery-card" data-lightbox-src="assets/images/screenshot_01_quick_widget.png" data-lightbox-caption="01 · 1초 퀵 위젯 (홈 화면 4x2, 4x1 위젯)">
+            <div class="gallery-thumb">
+              <img src="assets/images/screenshot_01_quick_widget.png" alt="1초 퀵 위젯" loading="lazy" />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <span>01 · 1초 퀵 위젯</span>
+                  <div class="gallery-zoom-icon"><i class="fas fa-expand"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="gallery-card" data-lightbox-src="assets/images/screenshot_02_timeline.png" data-lightbox-caption="02 · 감성 타임라인 (사진, 글, 음성, 위치 피드)">
+            <div class="gallery-thumb">
+              <img src="assets/images/screenshot_02_timeline.png" alt="감성 타임라인" loading="lazy" />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <span>02 · 감성 타임라인</span>
+                  <div class="gallery-zoom-icon"><i class="fas fa-expand"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="gallery-card" data-lightbox-src="assets/images/screenshot_03_map.png" data-lightbox-caption="03 · 여정 지도 (동선 및 장소별 사진 핀)">
+            <div class="gallery-thumb">
+              <img src="assets/images/screenshot_03_map.png" alt="여정 지도" loading="lazy" />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <span>03 · 여정 지도</span>
+                  <div class="gallery-zoom-icon"><i class="fas fa-expand"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="gallery-card" data-lightbox-src="assets/images/screenshot_04_calendar_jandi.png" data-lightbox-caption="04 · 잔디 & 캘린더 (스트릭 + 포토 캘린더)">
+            <div class="gallery-thumb">
+              <img src="assets/images/screenshot_04_calendar_jandi.png" alt="잔디 & 캘린더" loading="lazy" />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <span>04 · 잔디 & 캘린더</span>
+                  <div class="gallery-zoom-icon"><i class="fas fa-expand"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="gallery-card" data-lightbox-src="assets/images/screenshot_05_themes_fonts.png" data-lightbox-caption="05 · 테마 & 폰트 (8대 테마 + 6종 감성 서체)">
+            <div class="gallery-thumb">
+              <img src="assets/images/screenshot_05_themes_fonts.png" alt="테마 & 폰트" loading="lazy" />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <span>05 · 테마 & 폰트</span>
+                  <div class="gallery-zoom-icon"><i class="fas fa-expand"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="gallery-card" data-lightbox-src="assets/images/screenshot_06_security_cloud.png" data-lightbox-caption="06 · 보안 & 동기화 (생체인식 + 구글 드라이브)">
+            <div class="gallery-thumb">
+              <img src="assets/images/screenshot_06_security_cloud.png" alt="보안 & 동기화" loading="lazy" />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <span>06 · 보안 & 동기화</span>
+                  <div class="gallery-zoom-icon"><i class="fas fa-expand"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 7 -->
+          <div class="gallery-card" data-lightbox-src="assets/images/screenshot_07_pocketbook_pdf.png" data-lightbox-caption="07 · 감성 포켓북 PDF (전자책 출판)">
+            <div class="gallery-thumb">
+              <img src="assets/images/screenshot_07_pocketbook_pdf.png" alt="감성 포켓북 PDF" loading="lazy" />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <span>07 · 감성 포켓북 PDF</span>
+                  <div class="gallery-zoom-icon"><i class="fas fa-expand"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 8 -->
+          <div class="gallery-card" data-lightbox-src="assets/images/screenshot_08_chalna_movie.png" data-lightbox-caption="08 · 찰나 무비 (1080p 시네마 동영상 제작)">
+            <div class="gallery-thumb">
+              <img src="assets/images/screenshot_08_chalna_movie.png" alt="찰나 무비" loading="lazy" />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <span>08 · 찰나 무비</span>
+                  <div class="gallery-zoom-icon"><i class="fas fa-expand"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy & Trust Section -->
+    <section class="section" id="trust">
+      <div class="container">
+        <div class="trust-banner">
+          <div>
+            <div class="badge-tag" style="margin-bottom: 1rem;">
+              <i class="fas fa-shield-halved"></i>
+              <span>LOCAL-FIRST ARCHITECTURE</span>
+            </div>
+            <h3>당신의 소중한 일상은<br />오직 당신의 폰에만 머뭅니다</h3>
+            <p>
+              찰나는 회원가입이나 강제 클라우드 서버 전송이 없습니다. 모든 데이터는 당신의 스마트폰 기기 내부 Room DB에 비공개로 안전하게 암호화 보관됩니다.
+            </p>
+            <button type="button" class="btn btn-secondary" id="sharePageBtn">
+              <i class="fas fa-share-nodes"></i>
+              <span>찰나 페이지 링크 복사하기</span>
+            </button>
+          </div>
+
+          <div class="trust-points">
+            <div class="trust-point-item">
+              <div class="trust-point-icon"><i class="fas fa-lock"></i></div>
+              <div class="trust-point-text">
+                <h5>완전한 온디바이스 저장</h5>
+                <span>외부 서버로 전송되지 않아 유출 걱정이 없습니다.</span>
+              </div>
+            </div>
+            <div class="trust-point-item">
+              <div class="trust-point-icon"><i class="fas fa-fingerprint"></i></div>
+              <div class="trust-point-text">
+                <h5>생체인식 & PIN 이중 잠금</h5>
+                <span>지문이나 얼굴, 비밀번호로 나만 열어봅니다.</span>
+              </div>
+            </div>
+            <div class="trust-point-item">
+              <div class="trust-point-icon"><i class="fab fa-google-drive"></i></div>
+              <div class="trust-point-text">
+                <h5>Google Drive 개인 백업</h5>
+                <span>오직 본인의 개인 구글 드라이브로만 백업됩니다.</span>
+              </div>
+            </div>
+            <div class="trust-point-item">
+              <div class="trust-point-icon"><i class="fas fa-file-export"></i></div>
+              <div class="trust-point-text">
+                <h5>종속 없는 영구 소장</h5>
+                <span>ZIP 백업 및 옵시디언 마크다운으로 영구 보관하세요.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-tag">
+            <i class="fas fa-circle-question"></i>
+            <span>FAQ</span>
+          </div>
+          <h2 class="section-title">
+            자주 묻는 <span class="gradient-text">질문과 답변</span>
+          </h2>
+          <p class="section-desc">
+            찰나(CHALNA)에 대해 궁금하신 점들을 모았습니다.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <!-- FAQ 1 -->
+          <div class="faq-item active">
+            <button type="button" class="faq-question">
+              <span>기기를 변경할 때 데이터는 어떻게 옮기나요?</span>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                찰나는 <strong>[설정] ➡️ [구글 드라이브 백업/복원]</strong>을 통해 새 폰에서 구글 계정으로 로그인한 뒤 복원 버튼을 누르면 모든 사진과 일기가 1초 만에 복원됩니다. 또한 <strong>[데이터 전체 내보내기(ZIP)]</strong>를 통해 PC나 외장 메모리로 안전하게 백업할 수도 있습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>인터넷이 없는 비행기나 해외 오프라인에서도 작동하나요?</span>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                네! 찰나는 <strong>로컬 퍼스트(Local-First)</strong> 앱으로 네트워크 연결 없이도 모든 기록, 사진 촬영, 타임라인 검색, 포켓북 PDF 제작이 100% 정상 작동합니다. (네트워크가 연결되면 백그라운드에서 날씨 정보 및 클라우드 동기화가 자동으로 진행됩니다.)
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>음성 인식(STT)은 어떻게 작동하며 안전한가요?</span>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                최신 <strong>Google Gemini AI</strong> 기술을 적용하여 작은 속삭임이나 웅얼거림도 놀라운 정확도로 문맥에 맞게 한글로 변환합니다. 음성 원본 또한 보존되어 타임라인에서 언제든지 재생해 들을 수 있습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>옵시디언(Obsidian)이나 노션(Notion)과의 연동은 어떻게 하나요?</span>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                <strong>[모음집 탭] ➡️ [마크다운 내보내기]</strong>를 선택하시면 표준 Markdown(`.md`) 문서와 미디어 첨부 파일 폴더로 즉시 내보내집니다. 특히 음성 녹음의 경우 HTML5 인라인 오디오 플레이어 코드가 자동 삽입되어 옵시디언 볼트에서 바로 클릭해 청취할 수 있습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>앱 권한 허용이 부담스러워요. 필수로 허용해야 하나요?</span>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                찰나는 개인정보를 존중하여 필수 권한을 두지 않습니다. 카메라, 마이크, 위치 권한은 해당 기능(스냅 촬영, 음성 녹음, 지도 핀)을 사용할 때만 선택적으로 요청되며, 권한을 허용하지 않아도 텍스트 단상 기록과 기본 일기 기능은 온전히 무료로 이용하실 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Call To Action Section -->
+    <section class="cta-section" id="download">
+      <div class="container">
+        <div class="cta-box">
+          <h2>지금, 당신의 찰나를 <br /><span class="gradient-text">기록하기 시작하세요</span></h2>
+          <p>
+            오늘의 스치는 생각, 스쳐 지나가는 계절, 소중한 사람들과의 발자취까지.<br />
+            1초 만에 담아내는 나만의 감성 아카이브를 만나보세요.
+          </p>
+
+          <div class="cta-buttons">
+            <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <i class="fab fa-google-play"></i>
+              <span>Google Play에서 받기</span>
+            </a>
+            <a href="manual.html" class="btn btn-secondary">
+              <i class="fas fa-book-open"></i>
+              <span>공식 설명서 둘러보기</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="assets/images/chalna_logo_transparent.png" alt="찰나 로고" width="32" height="32" />
+            <span class="brand-text">찰나 <span class="brand-sub">CHALNA</span></span>
+          </div>
+          <p>
+            스치는 순간을 담는 가장 특별한 방법.<br />
+            아날로그 감성과 최신 모바일 기술이 빚어낸 온디바이스 라이프로그 앱입니다.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>주요 둘러보기</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">처음으로</a></li>
+            <li><a href="#highlights">핵심 가치</a></li>
+            <li><a href="#features">기능 쇼케이스</a></li>
+            <li><a href="#gallery">스크린샷 갤러리</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>보안 & 도구</h4>
+          <ul class="footer-links">
+            <li><a href="#trust">로컬 퍼스트 보안</a></li>
+            <li><a href="#features">Gemini AI 음성 변환</a></li>
+            <li><a href="#features">1080p 찰나무비</a></li>
+            <li><a href="#faq">자주 묻는 질문</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>안내 & 고객지원</h4>
+          <ul class="footer-links">
+            <li><a href="manual.html"><i class="fas fa-book-open"></i> 공식 사용자 설명서</a></li>
+            <li><a href="mailto:ykapp.lab@gmail.com"><i class="fas fa-envelope"></i> 제품 문의 및 제휴</a></li>
+            <li><a href="#download"><i class="fab fa-google-play"></i> 다운로드 안내</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 CHALNA (찰나). All rights reserved.</span>
+        <span>Designed with Analog Warmth</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Screenshots -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="닫기">&times;</button>
+      <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

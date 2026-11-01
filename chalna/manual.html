@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>찰나 (CHALNA) 사용자 설명서 (User Manual)</title>
+
+  <!-- Meta Tags -->
+  <meta name="description" content="스치는 순간을 담는 가장 특별한 방법, 찰나(CHALNA) 앱의 공식 사용자 설명서 및 상세 기능 가이드입니다." />
+  <meta name="keywords" content="찰나, CHALNA, 사용자설명서, 사용법, 라이프로그, 퀵위젯, Gemini AI, 잔디캘린더, 옵시디언" />
+  <meta name="author" content="YK App Lab" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="찰나 (CHALNA) 사용자 설명서" />
+  <meta property="og:description" content="1초 퀵 위젯부터 AI 음성 변환, 발자취 지도, 찰나 무비까지 공식 매뉴얼로 확인하세요." />
+  <meta property="og:image" content="assets/images/feature_graphic_1024x500.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/chalna_logo_transparent.png" />
+  <link rel="apple-touch-icon" href="assets/images/chalna_logo_transparent.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="ambient-circle circle-1"></div>
+    <div class="ambient-circle circle-2"></div>
+    <div class="ambient-circle circle-3"></div>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo" aria-label="메인 홈으로 이동">
+        <img src="assets/images/chalna_logo_transparent.png" alt="찰나 로고" width="36" height="36" />
+        <span class="brand-text">
+          찰나 <span class="brand-sub">MANUAL</span>
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="index.html"><i class="fas fa-arrow-left"></i> 랜딩페이지 홈</a></li>
+        <li><a href="#overview">앱 개요</a></li>
+        <li><a href="#ui-guide">화면 안내</a></li>
+        <li><a href="#scenarios">시나리오 가이드</a></li>
+        <li><a href="#troubleshooting">FAQ</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="테마 변경">
+          <i class="fas fa-sun"></i>
+        </button>
+
+        <!-- CTA Download Button -->
+        <a href="index.html#download" class="btn-download-nav">
+          <i class="fab fa-google-play"></i>
+          <span>앱 받기</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Manual Title Header -->
+  <section class="manual-header">
+    <div class="container">
+      <div class="badge-tag">
+        <i class="fas fa-book-open"></i>
+        <span>CHALNA OFFICIAL USER MANUAL</span>
+      </div>
+      <h1 class="section-title">
+        찰나 (CHALNA) <span class="gradient-text">사용자 설명서</span>
+      </h1>
+      <p class="section-desc">
+        "스치는 순간을 담는 가장 특별한 방법" — 찰나의 모든 핵심 기능과 상세 활용법을 안내합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Documentation Layout -->
+  <main class="container manual-wrapper">
+    <!-- Left Sticky Sidebar (Table of Contents) -->
+    <aside class="manual-sidebar">
+      <h4>목차 (Contents)</h4>
+      <nav>
+        <ul class="toc-list">
+          <li><a href="#overview" class="toc-link">1. 앱 개요 (Overview)</a></li>
+          <li><a href="#permissions" class="toc-link">2. 초기 설정 및 접근 권한</a></li>
+          <li><a href="#ui-guide" class="toc-link">3. 화면별 기능 안내</a></li>
+          <li style="padding-left: 0.75rem;"><a href="#ui-moments" class="toc-link">· 탭 1: 순간들 (타임라인)</a></li>
+          <li style="padding-left: 0.75rem;"><a href="#ui-places" class="toc-link">· 탭 2: 머문곳 (발자취 지도)</a></li>
+          <li style="padding-left: 0.75rem;"><a href="#ui-days" class="toc-link">· 탭 3: 그날들 (잔디 캘린더)</a></li>
+          <li style="padding-left: 0.75rem;"><a href="#ui-archive" class="toc-link">· 탭 4: 모음집 (회고 & 출판)</a></li>
+          <li style="padding-left: 0.75rem;"><a href="#ui-widget" class="toc-link">· 홈 위젯 (4×1 & 4×2)</a></li>
+          <li><a href="#scenarios" class="toc-link">4. 핵심 사용 시나리오 가이드</a></li>
+          <li style="padding-left: 0.75rem;"><a href="#scenario-1" class="toc-link">· 시나리오 1: 1초 위젯 기록</a></li>
+          <li style="padding-left: 0.75rem;"><a href="#scenario-2" class="toc-link">· 시나리오 2: Gemini AI 음성변환</a></li>
+          <li style="padding-left: 0.75rem;"><a href="#scenario-3" class="toc-link">· 시나리오 3: 옵시디언 마크다운</a></li>
+          <li style="padding-left: 0.75rem;"><a href="#scenario-4" class="toc-link">· 시나리오 4: 찰나무비 & PDF 출판</a></li>
+          <li style="padding-left: 0.75rem;"><a href="#scenario-5" class="toc-link">· 시나리오 5: 백업 및 기기 이전</a></li>
+          <li><a href="#settings" class="toc-link">5. 환경 설정 및 데이터 관리</a></li>
+          <li><a href="#troubleshooting" class="toc-link">6. 문제 해결 및 FAQ</a></li>
+          <li><a href="#support" class="toc-link">7. 제품 지원 및 문의처</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Right Main Content -->
+    <article class="manual-content">
+
+      <!-- Section 1: Overview -->
+      <section class="manual-section" id="overview">
+        <h2><i class="fas fa-compass gradient-text"></i> 1. 앱 개요 (App Overview)</h2>
+        <p>
+          <strong>찰나(CHALNA)</strong>는 바쁜 일상 속에서 스쳐 지나가는 소중한 생각, 사진, 영상, 음성을 1초 만에 기록하고, 나만의 감성 다이어리와 지도, 출판물로 엮어주는 아날로그 감성 <strong>원터치 타임로그(Timelog)</strong> 애플리케이션입니다.
+        </p>
+
+        <div class="callout callout-note">
+          <div class="callout-title"><i class="fas fa-quote-left"></i> 핵심 슬로건</div>
+          <p>"스치는 순간을 담는 가장 특별한 방법, 찰나(CHALNA)"</p>
+        </div>
+
+        <h3>1.1 4대 기록 유형</h3>
+        <ul>
+          <li>✍️ <strong>단상 (Thoughts)</strong>: 마크다운 스타일 체크리스트(To-Do 할 일)와 생각을 자유롭게 메모</li>
+          <li>📷 <strong>스냅 (Snaps)</strong>: 무음 고속 촬영 및 최대 10장 콜라주, EXIF 위치 정보 자동 추출</li>
+          <li>🎥 <strong>클립 (Clips)</strong>: 일상의 생생한 찰나를 담는 3초~10초 감성 미니 비디오</li>
+          <li>🎙️ <strong>녹음 (Records)</strong>: 생생한 현장 소리 녹음 및 Gemini AI 기반 실시간 텍스트 변환(STT)</li>
+        </ul>
+
+        <h3>1.2 시스템 요구사항</h3>
+        <div class="table-responsive">
+          <table class="manual-table">
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>상세 사양</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>지원 운영체제</strong></td>
+                <td>Android 8.0 (Oreo, API 레벨 26) 이상</td>
+              </tr>
+              <tr>
+                <td><strong>권장 운영체제</strong></td>
+                <td>Android 13 (Tiramisu) ~ Android 16 최신 OS</td>
+              </tr>
+              <tr>
+                <td><strong>앱 버전</strong></td>
+                <td>v1.0.26 (Build 27)</td>
+              </tr>
+              <tr>
+                <td><strong>저장 공간</strong></td>
+                <td>기본 설치 약 40MB (사진 및 미디어 저장 용량 별도)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 2: Permissions -->
+      <section class="manual-section" id="permissions">
+        <h2><i class="fas fa-shield-alt gradient-text"></i> 2. 초기 설정 및 접근 권한 안내</h2>
+        <p>
+          찰나는 회원의 개인정보를 최우선으로 보호하며, 서비스 제공에 꼭 필요한 최소한의 권한만 요청합니다. <strong>필수 권한이 없으며</strong> 선택 권한을 거부하더라도 기본 텍스트 기록을 온전히 이용하실 수 있습니다.
+        </p>
+
+        <div class="table-responsive">
+          <table class="manual-table">
+            <thead>
+              <tr>
+                <th>권한 항목</th>
+                <th>구분</th>
+                <th>요청 사유 및 상세 설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>카메라 (Camera)</strong></td>
+                <td>선택</td>
+                <td>찰나 스냅(사진) 및 클립(동영상)을 즉석에서 촬영하기 위해 필요합니다.</td>
+              </tr>
+              <tr>
+                <td><strong>마이크 (Microphone)</strong></td>
+                <td>선택</td>
+                <td>찰나 음성 녹음 및 Gemini AI 텍스트 변환 기능을 사용하기 위해 필요합니다.</td>
+              </tr>
+              <tr>
+                <td><strong>위치 정보 (Location)</strong></td>
+                <td>선택</td>
+                <td>기록 작성 시 현재 주소와 날씨를 자동 기재하고, 지도에 동선을 표시하기 위해 필요합니다.</td>
+              </tr>
+              <tr>
+                <td><strong>미디어 위치 (Media Location)</strong></td>
+                <td>선택</td>
+                <td>앨범에서 사진을 불러올 때 원본 촬영 위치(EXIF GPS)를 읽어오기 위해 필요합니다.</td>
+              </tr>
+              <tr>
+                <td><strong>생체인식 (Biometric)</strong></td>
+                <td>선택</td>
+                <td>앱 실행 시 지문 또는 얼굴 인식으로 빠르고 안전하게 잠금을 해제합니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-tip">
+          <div class="callout-title"><i class="fas fa-lightbulb"></i> 권한 수동 변경 방법</div>
+          <p>스마트폰의 <strong>[설정] ➡️ [애플리케이션] ➡️ [찰나 (CHALNA)] ➡️ [권한]</strong> 메뉴에서 언제든지 다시 활성화할 수 있습니다.</p>
+        </div>
+      </section>
+
+      <!-- Section 3: UI Guide -->
+      <section class="manual-section" id="ui-guide">
+        <h2><i class="fas fa-mobile-screen gradient-text"></i> 3. 화면별 기능 안내 (UI Walkthrough)</h2>
+        <p>
+          찰나는 하단 4개의 핵심 탭과 스마트폰 홈 화면 위젯, 원터치 FAB(+) 버튼으로 유기적으로 구성되어 있습니다.
+        </p>
+
+        <!-- 3.1 Moments -->
+        <div id="ui-moments">
+          <h3>탭 1: 순간들 (Moments - 타임라인)</h3>
+          <p>
+            나의 모든 생각과 미디어가 최신순(시간 역순)으로 흐르는 메인 타임라인 화면입니다.
+          </p>
+          <div class="manual-screenshot-card">
+            <img src="assets/images/screenshot_02_timeline.png" alt="찰나 타임라인 피드" data-lightbox-src="assets/images/screenshot_02_timeline.png" data-lightbox-caption="02 · 감성 타임라인 피드" />
+            <div class="card-text">
+              <h4>시간의 흐름을 한눈에 담는 타임로그 카드</h4>
+              <ul>
+                <li><strong>체크리스트 즉시 체크</strong>: 단상 본문의 <code>- [ ]</code> 할 일 항목을 터치해 완료선을 그을 수 있습니다.</li>
+                <li><strong>미니 맵 연동</strong>: 위치 정보가 있는 카드는 미니 지도가 노출되며 터치 시 네이버/카카오/구글/티맵 내비게이션으로 바로 연결됩니다.</li>
+                <li><strong>생각 덧붙이기</strong>: <code>+ 생각 덧붙이기</code>를 눌러 일기 스레드를 계속 이어갈 수 있습니다.</li>
+                <li><strong>길게 누르기(Long Press)</strong>: 카드를 꾹 누르면 본문 내용이 클립보드에 즉시 복사됩니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3.2 Places -->
+        <div id="ui-places" style="margin-top: 3rem;">
+          <h3>탭 2: 머문곳 (Places - 발자취 지도)</h3>
+          <p>
+            내가 남긴 찰나들이 지도 위에 어떻게 흩어져 있는지 한눈에 내려다보는 공간 기반 뷰입니다.
+          </p>
+          <div class="manual-screenshot-card">
+            <img src="assets/images/screenshot_03_map.png" alt="머문곳 발자취 지도" data-lightbox-src="assets/images/screenshot_03_map.png" data-lightbox-caption="03 · 발자취 여정 지도" />
+            <div class="card-text">
+              <h4>장소별 사진 핀 & 여행 동선 시각화</h4>
+              <ul>
+                <li><strong>스마트 마커 클러스터링</strong>: 밀집된 장소의 기록들을 숫자가 적힌 감성 원형 배지로 묶어 깔끔하게 표시합니다.</li>
+                <li><strong>하루 여행 동선 연결</strong>: 특정 날짜를 고르면 방문한 장소들이 1번, 2번, 3번 순서의 점선 경로로 연결됩니다.</li>
+                <li><strong>원터치 길안내</strong>: 핀을 누르고 '지도 앱 열기'를 누르면 즉시 길찾기를 시작합니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3.3 Days -->
+        <div id="ui-days" style="margin-top: 3rem;">
+          <h3>탭 3: 그날들 (Days - 잔디 캘린더 & 통계)</h3>
+          <p>
+            깃허브(GitHub) 잔디밭처럼 1년 365일 매일의 기록 여정을 시각화해 주는 감성 캘린더입니다.
+          </p>
+          <div class="manual-screenshot-card">
+            <img src="assets/images/screenshot_04_calendar_jandi.png" alt="그날들 잔디 캘린더" data-lightbox-src="assets/images/screenshot_04_calendar_jandi.png" data-lightbox-caption="04 · 365일 잔디 캘린더" />
+            <div class="card-text">
+              <h4>잔디 히트맵 & 연속 기록 스트릭 (Streak)</h4>
+              <ul>
+                <li><strong>4단계 잔디 심기</strong>: 기록 수에 따라 0개(회색)부터 6개 이상(진한 에메랄드/보라)까지 시각화됩니다.</li>
+                <li><strong>연속 기록 스트릭</strong>: 매일 꾸준히 기록할수록 연속 일수가 쌓여 건강한 습관을 만들어 줍니다.</li>
+                <li><strong>일자별 타임라인 조회</strong>: 날짜를 누르면 하단에 해당 일자의 찰나들만 펼쳐집니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3.4 Archive -->
+        <div id="ui-archive" style="margin-top: 3rem;">
+          <h3>탭 4: 모음집 (Archive - 회고 및 출판)</h3>
+          <p>
+            쌓여 있는 찰나들을 가치 있는 작품으로 재탄생시키는 창작 및 아카이빙 탭입니다.
+          </p>
+          <div class="manual-screenshot-card">
+            <img src="assets/images/screenshot_08_chalna_movie.png" alt="찰나 무비 및 출판" data-lightbox-src="assets/images/screenshot_08_chalna_movie.png" data-lightbox-caption="08 · 찰나 무비 및 PDF 출판" />
+            <div class="card-text">
+              <h4>1080p 시네마 무비 & PDF 포켓북</h4>
+              <ul>
+                <li><strong>🎬 감성 찰나무비</strong>: 사진과 3초 클립을 감성 BGM, 타이틀 자막이 어우러진 1080p 세로형 릴스 영상으로 자동 제작합니다.</li>
+                <li><strong>📚 감성 PDF 포켓북</strong>: 킨포크 매거진, 폴라로이드 등 5대 테마의 고화질 전자책을 1분 만에 출판합니다.</li>
+                <li><strong>📝 옵시디언 마크다운 내보내기</strong>: 오디오 플레이어가 포함된 표준 Markdown(`.md`) 문서로 백업합니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3.5 Widget -->
+        <div id="ui-widget" style="margin-top: 3rem;">
+          <h3>스마트폰 바탕화면 홈 위젯 (4×1 & 4×2)</h3>
+          <p>
+            앱을 켜지 않고도 스마트폰 홈 화면에서 1초 만에 기록을 남길 수 있도록 2가지 위젯을 지원합니다.
+          </p>
+          <div class="manual-screenshot-card">
+            <img src="assets/images/screenshot_01_quick_widget.png" alt="홈 위젯 2종" data-lightbox-src="assets/images/screenshot_01_quick_widget.png" data-lightbox-caption="01 · 1초 퀵 위젯 (홈 화면 즉시 기록)" />
+            <div class="card-text">
+              <h4>홈 화면 원터치 퀵 다이얼로그</h4>
+              <ul>
+                <li><strong>4×1 컴팩트 위젯</strong>: 단상, 스냅, 클립, 녹음, 앨범 5개 버튼으로 초고속 기록창을 엽니다.</li>
+                <li><strong>4×2 감성 라이프 위젯</strong>: '찰나의 단상 적기...' 인풋 바와 함께 오늘 찍은 사진의 실시간 썸네일과 음성 파형을 보여줍니다.</li>
+                <li><strong>실시간 테마 연동</strong>: 앱에서 설정한 테마 색상 팔레트가 위젯에도 100% 동일하게 반영됩니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Scenarios -->
+      <section class="manual-section" id="scenarios">
+        <h2><i class="fas fa-list-check gradient-text"></i> 4. 핵심 사용 시나리오 가이드</h2>
+        
+        <!-- Scenario 1 -->
+        <div id="scenario-1">
+          <h3>시나리오 1: 홈 위젯으로 1초 만에 단상 및 사진 기록하기</h3>
+          <ol>
+            <li><strong>위젯 터치</strong>: 스마트폰 홈 화면 4×2 위젯의 <em>'찰나의 단상 적기...'</em> 바를 탭합니다.</li>
+            <li><strong>투명 퀵 입력창</strong>: 앱 전체가 로딩되지 않고 가벼운 반투명 입력 다이얼로그가 즉시 열립니다.</li>
+            <li><strong>내용 입력</strong>: 단상 메모를 적거나, 체크리스트(<code>- [ ]</code>)를 추가하고 카메라 아이콘으로 즉석 사진을 찍습니다.</li>
+            <li><strong>저장 완료</strong>: 우측 상단 <strong>[저장]</strong>을 누르면 0.1초 만에 저장되고 홈 화면으로 복귀합니다.</li>
+          </ol>
+        </div>
+
+        <!-- Scenario 2 -->
+        <div id="scenario-2" style="margin-top: 2.5rem;">
+          <h3>시나리오 2: 음성 녹음과 Gemini AI 초정밀 텍스트 변환</h3>
+          <ol>
+            <li><strong>녹음 시작</strong>: 하단 FAB(+) 메뉴나 위젯에서 <strong>[녹음]</strong>을 선택합니다.</li>
+            <li><strong>목소리 남기기</strong>: 중앙 붉은 마이크 버튼을 누르고 오늘 있었던 일이나 떠오른 생각을 말합니다.</li>
+            <li><strong>AI 텍스트 변환</strong>: 녹음 완료 후 <strong>[✨ AI 음성 텍스트 자동 변환]</strong> 버튼을 누릅니다.</li>
+            <li><strong>결과 확인 & 저장</strong>: Google Gemini AI 엔진이 또렷한 한글 텍스트로 자동 받아적어 단상 본문에 채워주며, 오디오와 텍스트를 함께 저장합니다.</li>
+          </ol>
+        </div>
+
+        <!-- Scenario 3 -->
+        <div id="scenario-3" style="margin-top: 2.5rem;">
+          <h3>시나리오 3: 옵시디언(Obsidian)으로 오디오가 포함된 마크다운 내보내기</h3>
+          <ol>
+            <li><strong>모음집 탭 이동</strong>: 하단 <strong>[모음집]</strong> ➡️ <strong>[📝 마크다운(MD) 내보내기]</strong>를 선택합니다.</li>
+            <li><strong>미디어 옵션 활성화</strong>: <em>'🖼️ 미디어 첨부 포함'</em> 스위치를 켭니다.</li>
+            <li><strong>내보내기 실행</strong>: <strong>[마크다운 내보내기 및 공유]</strong>를 누르고 Obsidian 앱을 선택하거나 볼트에 저장합니다.</li>
+            <li><strong>인라인 재생</strong>: 옵시디언에서 노트를 열면 고화질 사진들과 함께 <strong>HTML5 오디오 재생 바(▶)</strong>가 나타나 녹음 목소리를 바로 청취할 수 있습니다.</li>
+          </ol>
+        </div>
+
+        <!-- Scenario 4 -->
+        <div id="scenario-4" style="margin-top: 2.5rem;">
+          <h3>시나리오 4: 1080p 감성 숏폼 무비 및 PDF 포켓북 출판하기</h3>
+          <ol>
+            <li><strong>[모음집]</strong> 탭에서 <strong>[🎬 감성 타임로그 동영상 만들기]</strong>를 터치합니다.</li>
+            <li>원하는 기간과 배경음악 테마(새벽 감성, 따스한 오후 등), 찰나별 노출 시간(1초/3초)을 선택합니다.</li>
+            <li><strong>[동영상 제작]</strong>을 누르면 백그라운드 렌더링을 통해 1080p Full HD MP4 영상이 완성됩니다.</li>
+            <li>종이책 감성 출판을 원한다면 <strong>[📚 PDF 포켓북 내보내기]</strong>를 통해 고화질 전자책을 제작할 수 있습니다.</li>
+          </ol>
+        </div>
+
+        <!-- Scenario 5 -->
+        <div id="scenario-5" style="margin-top: 2.5rem;">
+          <h3>시나리오 5: Google Drive 자동 백업 및 ZIP 파일로 기기 이전하기</h3>
+          <div class="callout callout-important">
+            <div class="callout-title"><i class="fas fa-triangle-exclamation"></i> 프라이버시 원칙</div>
+            <p>찰나는 중앙 서버에 일기를 무단 저장하지 않습니다. 기기 변경이나 분실에 대비해 Google Drive 자동 백업 또는 ZIP 백업을 꼭 설정해 두세요!</p>
+          </div>
+          <ul>
+            <li><strong>Google Drive 자동 백업</strong>: <strong>[설정] ➡️ [Google Drive 동기화]</strong>에서 계정을 연결하고 새벽 백업 시간을 지정하면 매일 밤 자동으로 비공개 백업됩니다.</li>
+            <li><strong>원클릭 ZIP 백업</strong>: <strong>[설정] ➡️ [전체 백업 생성]</strong>을 누르면 스마트폰 다운로드 폴더에 사진과 음성이 모두 담긴 압축 파일이 생성되며, 새 폰에서 1초 만에 복원할 수 있습니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 5: Settings Tree -->
+      <section class="manual-section" id="settings">
+        <h2><i class="fas fa-sliders gradient-text"></i> 5. 환경 설정 및 데이터 관리</h2>
+        <p>우측 상단 톱니바퀴(⚙️) 아이콘을 눌러 나만의 취향과 보안 설정을 조정할 수 있습니다:</p>
+
+        <div class="code-box">
+[찰나 환경 설정 구조]
+ ├── 🎨 감성 디자인: 8가지 테마(라이트, 다크, 세이지, 레트로 등) & 6종 감성 손글씨 서체
+ ├── 🌐 일반 설정: 다국어(한국어, 영어, 스페인어) & 시작 기본 기간 & 클립 무음 재생
+ ├── 📸 미디어 및 위치: 사진/비디오 화질 설정(720p/1080p/4K) & 자동 위치/날씨 기록
+ ├── 🔒 보안 및 잠금: PIN 4자리 번호 잠금 & 생체인식(지문/얼굴) [PRO] & 자동 잠금 유예 시간
+ ├── 👑 CHALNA PRO: 무제한 스냅/클립, 초고화질 녹화, Google Drive 자동 동기화
+ └── 💾 백업 및 클라우드: ZIP 로컬 풀 백업 생성/복원 & Google Drive 실시간 동기화
+        </div>
+      </section>
+
+      <!-- Section 6: Troubleshooting & FAQ -->
+      <section class="manual-section" id="troubleshooting">
+        <h2><i class="fas fa-circle-question gradient-text"></i> 6. 문제 해결 및 자주 묻는 질문 (FAQ)</h2>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button type="button" class="faq-question">
+              <span>Q1. 홈 위젯의 테마가 앱에서 바꾼 테마와 다르게 보여요.</span>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>안드로이드 시스템의 배터리 절약 정책으로 위젯 갱신이 지연될 수 있습니다. 찰나 앱을 한 번 켰다가 홈 화면으로 나가거나 화면을 껐다 켜면 최신 테마 색상으로 즉시 갱신됩니다.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Q2. 음성 녹음 시 "AI 음성 인식에 실패했습니다"라고 나와요.</span>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>Gemini AI 음성 변환은 클라우드 엔진을 사용하므로 Wi-Fi나 모바일 데이터(LTE/5G)가 켜져 있어야 합니다. 네트워크가 불안정할 경우 기기 내장 음성인식 엔진이 보조로 동작합니다.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Q3. 옵시디언으로 마크다운을 내보냈는데 소리가 안 나요.</span>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>마크다운 내보내기 창에서 '🖼️ 미디어 첨부 포함' 스위치를 켰는지 확인해 주세요. 옵시디언의 '라이브 미리보기' 또는 '읽기' 모드에서 표준 HTML5 오디오 재생 바가 나타납니다.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Q4. 사진과 동영상이 많아져서 앱 용량을 줄이고 싶어요.</span>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>[설정] ➡️ [동영상 녹화 화질]을 720p HD(절약형)로 바꾸시면 1080p 대비 용량이 60% 절약됩니다. 또한 사진 저장 화질을 '일반화질'로 조정하시거나, 오래된 기록은 [ZIP 전체 백업] 후 정리하실 수 있습니다.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Q5. PIN 비밀번호를 잊어버렸어요!</span>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>지문/생체인식을 등록해 두셨다면 생체인식으로 잠금을 해제한 뒤 설정에서 PIN을 즉시 재설정할 수 있습니다. 등록되어 있지 않다면 사용자 데이터 보호 보안 정책상 앱을 재설치해야 하므로 비밀번호는 꼭 기억해 주세요.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Support -->
+      <section class="manual-section" id="support">
+        <h2><i class="fas fa-headset gradient-text"></i> 7. 제품 지원 및 문의처</h2>
+        <div class="callout callout-note">
+          <p>
+            찰나(CHALNA) 앱을 이용하시며 겪으신 불편 사항이나 제안하고 싶은 새로운 아이디어가 있으시다면 언제든지 아래 공식 지원 창구로 연락해 주세요.
+          </p>
+          <ul style="margin-top: 1rem; margin-bottom: 0;">
+            <li><strong>개발 및 운영</strong>: YK App Lab</li>
+            <li><strong>공식 문의 및 오류 제보</strong>: <a href="mailto:ykapp.lab@gmail.com" style="color: var(--text-accent); text-decoration: underline;">ykapp.lab@gmail.com</a></li>
+            <li><strong>공식 웹사이트</strong>: <a href="index.html" style="color: var(--text-accent);">찰나 공식 랜딩페이지</a></li>
+            <li><strong>저작권</strong>: Copyright &copy; 2026 CHALNA Timelog. All Rights Reserved.</li>
+          </ul>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="assets/images/chalna_logo_transparent.png" alt="찰나 로고" width="32" height="32" />
+            <span class="brand-text">찰나 <span class="brand-sub">CHALNA</span></span>
+          </div>
+          <p>
+            스치는 순간을 담는 가장 특별한 방법.<br />
+            온디바이스 감성 라이프로그 & 타임로그
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>바로가기</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">랜딩페이지 메인</a></li>
+            <li><a href="index.html#features">주요 기능 소개</a></li>
+            <li><a href="index.html#gallery">스크린샷 갤러리</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>설명서 빠른 이동</h4>
+          <ul class="footer-links">
+            <li><a href="#overview">앱 개요</a></li>
+            <li><a href="#ui-guide">화면 안내</a></li>
+            <li><a href="#scenarios">핵심 시나리오</a></li>
+            <li><a href="#troubleshooting">자주 묻는 질문</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>고객 지원</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:ykapp.lab@gmail.com"><i class="fas fa-envelope"></i> 이메일 문의하기</a></li>
+            <li><a href="#troubleshooting"><i class="fas fa-question-circle"></i> 문제 해결 & FAQ</a></li>
+            <li><a href="index.html#download"><i class="fab fa-google-play"></i> 앱 다운로드</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 CHALNA (찰나). All rights reserved.</span>
+        <span>Designed with Analog Warmth</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Screenshots -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="닫기">&times;</button>
+      <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
