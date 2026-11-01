@@ -3,725 +3,684 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YK App Lab (와이케이앱랩) - Creative App Laboratory</title>
-  <meta name="description" content="직접 사용하고 싶은 유용한 앱을 독립 개발하여 안드로이드 생태계에 배포합니다. 긍정메아리, 드립메이트, 소담달력, 찰나.">
-  <meta name="keywords" content="와이케이앱랩, ykapplab, 소담달력, 드립메이트, 긍정메아리, 찰나, 안드로이드 앱">
+
+  <!-- ================================================================= -->
+  <!-- 🔍 SEO & ASO (Search Engine & App Store Optimization) 메타 태그  -->
+  <!-- ================================================================= -->
+  <title>와이케이앱랩 (YK App Lab) - 유용한 안드로이드 앱 스튜디오 | 소담달력 · 드립메이트 · 찰나 · 긍정메아리</title>
+  <meta name="description" content="와이케이앱랩(YK App Lab)은 일상의 가치를 더하는 실용적인 안드로이드 모바일 앱을 독립 개발합니다. 음력 절기 달력 소담달력, 핸드드립 타이머 드립메이트, 원터치 타임로그 찰나, 마인드셋 루틴 긍정메아리를 구글 플레이에서 만나보세요.">
+  <meta name="keywords" content="와이케이앱랩, ykapplab, 소담달력, 드립메이트, 긍정메아리, 찰나, 안드로이드 앱, 구글 플레이 스토어, 달력 위젯, 손없는날 달력, 음력 달력, 24절기 달력, 핸드드립 타이머, 커피 드립 계산기, 수액 gtt 계산기, 타임로그, 시간 기록 앱, 습관 잔디, 긍정확언, 명언 루틴, 자존감 높이기, 1인 개발 스튜디오">
+  <meta name="author" content="YK App Lab (와이케이앱랩)">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://ykapplab.github.io/">
   <link rel="icon" type="image/png" href="icons/logo.png">
+  <link rel="apple-touch-icon" href="icons/logo.png">
 
-  <!-- Open Graph -->
+  <!-- Open Graph (Facebook, KakaoTalk, Naver) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="YK App Lab - Creative App Laboratory">
-  <meta property="og:description" content="직접 사용하고 싶은 유용한 앱을 독립 개발하는 1인 스튜디오 와이케이앱랩입니다.">
+  <meta property="og:site_name" content="YK App Lab (와이케이앱랩)">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="와이케이앱랩 (YK App Lab) - 우리가 만드는 스마트한 모바일 경험">
+  <meta property="og:description" content="손끝의 터치로 편리해지는 일상. 소담달력, 드립메이트, 찰나, 긍정메아리 등 일상에 꼭 필요한 안드로이드 앱을 제작합니다.">
   <meta property="og:url" content="https://ykapplab.github.io/">
-  <meta property="og:image" content="https://ykapplab.github.io/icons/logo.png">
+  <meta property="og:image" content="https://ykapplab.github.io/icons/sodam.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
 
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="YK App Lab (와이케이앱랩) - 안드로이드 모바일 앱 스튜디오">
+  <meta name="twitter:description" content="소담달력, 드립메이트, 찰나, 긍정메아리 공식 포털. Google Play에서 바로 만나보세요.">
+  <meta name="twitter:image" content="https://ykapplab.github.io/icons/sodam.png">
+
+  <!-- ================================================================= -->
+  <!-- 📊 Schema.org 구조화 데이터 (Google Rich Snippets / ASO 최적화)  -->
+  <!-- ================================================================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ykapplab.github.io/#organization",
+        "name": "YK App Lab (와이케이앱랩)",
+        "url": "https://ykapplab.github.io/",
+        "logo": "https://ykapplab.github.io/icons/logo.png",
+        "email": "ykapp.lab@gmail.com",
+        "description": "직접 사용하고 싶은 유용한 앱을 독립 개발하여 안드로이드 생태계에 배포하는 모바일 앱 스튜디오",
+        "sameAs": [
+          "https://play.google.com/store/apps/developer?id=%EC%99%80%EC%9D%B4%EC%BC%80%EC%9D%B4%EC%95%B1%EB%9E%A9(ykapp+Lab)"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ykapplab.github.io/#website",
+        "url": "https://ykapplab.github.io/",
+        "name": "YK App Lab",
+        "publisher": { "@id": "https://ykapplab.github.io/#organization" },
+        "inLanguage": "ko-KR"
+      },
+      {
+        "@type": "ItemList",
+        "name": "YK App Lab 안드로이드 앱 목록",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "소담달력 (Sodam Calendar)",
+              "operatingSystem": "ANDROID",
+              "applicationCategory": "ProductivityApplication",
+              "url": "https://ykapplab.github.io/sodam-calendar/",
+              "image": "https://ykapplab.github.io/icons/sodam.png",
+              "description": "음력 달력 · 24절기 · 손없는날 · 감성 달력 위젯",
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "드립메이트 (DripMate)",
+              "operatingSystem": "ANDROID",
+              "applicationCategory": "UtilitiesApplication",
+              "url": "https://ykapplab.github.io/dripmate/",
+              "image": "https://ykapplab.github.io/icons/dripmate.png",
+              "description": "스마트 핸드드립 타이머 & 추출 계산기",
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "긍정메아리 (PosiEcho)",
+              "operatingSystem": "ANDROID",
+              "applicationCategory": "LifestyleApplication",
+              "url": "https://ykapplab.github.io/PosiEcho/",
+              "image": "https://ykapplab.github.io/icons/posiecho.png",
+              "description": "매일 3분 긍정확언 · 명언 · 셀프 마인드셋 루틴",
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "찰나 (CHALNA)",
+              "operatingSystem": "ANDROID",
+              "applicationCategory": "ProductivityApplication",
+              "url": "https://ykapplab.github.io/chalna/",
+              "image": "https://ykapplab.github.io/icons/chalna.png",
+              "description": "원터치 타임로그 · 지도 동선 타임라인 · 습관 잔디 관리",
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts (Inter & Pretendard / Noto Sans KR) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Phosphor Icons for modern mobile & store icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
   
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans KR', 'Pretendard', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    :root {
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --text-sub: #94a3b8;
-      --brand-blue: #2563eb;
-      --brand-blue-hover: #1d4ed8;
-      --brand-teal: #0d9488;
-      --border-color: #e2e8f0;
-      --tag-bg: #f1f5f9;
-      --tag-text: #475569;
-      --radius-card: 24px;
-      --radius-btn: 12px;
-      --radius-tag: 20px;
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-      --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
-      --shadow-hover: 0 20px 30px -10px rgba(15, 23, 42, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
     }
-
-    a {
-      text-decoration: none;
-      color: inherit;
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
-
-    /* Container */
-    .container {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0 24px;
+    .dark .glass-card {
+      background: rgba(30, 41, 59, 0.85);
     }
-
-    /* Navigation */
-    header {
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border-color);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    .app-card-shadow {
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
     }
-
-    .nav-inner {
-      height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand img {
-      width: 36px;
-      height: 40px;
-      object-fit: contain;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-name {
-      font-size: 1.45rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: #0f172a;
-      line-height: 1.1;
-    }
-
-    .brand-tagline {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      color: #94a3b8;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav-link {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #334155;
-      transition: color 0.15s ease;
-    }
-
-    .nav-link:hover {
-      color: var(--brand-blue);
-    }
-
-    .nav-btn {
-      padding: 8px 18px;
-      background-color: #f1f5f9;
-      color: #0f172a;
-      border: 1px solid #e2e8f0;
-      border-radius: 9999px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-
-    .nav-btn:hover {
-      background-color: #e2e8f0;
-    }
-
-    /* Hero */
-    .hero-section {
-      padding: 60px 0 40px;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      background-color: #eff6ff;
-      color: var(--brand-blue);
-      border: 1px solid #dbeafe;
-      border-radius: 9999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .hero-title {
-      font-size: 2.3rem;
-      font-weight: 800;
-      color: var(--text-main);
-      letter-spacing: -0.8px;
-      line-height: 1.3;
-      margin-bottom: 12px;
-      word-break: keep-all;
-    }
-
-    .hero-desc {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto;
-      word-break: keep-all;
-    }
-
-    /* Apps Grid Section */
-    .apps-section {
-      padding: 20px 0 70px;
-    }
-
-    .apps-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-    }
-
-    .app-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-card);
-      padding: 32px 28px 24px;
-      box-shadow: var(--shadow-card);
-      display: flex;
-      flex-direction: column;
-      transition: all 0.25s ease;
-    }
-
-    .app-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
-      border-color: #cbd5e1;
-    }
-
-    .app-top {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 16px;
-    }
-
-    .app-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 18px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-      flex-shrink: 0;
-      object-fit: cover;
-      background-color: #fff;
-    }
-
-    .app-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .app-category {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--brand-teal);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
-
-    .app-name {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--text-main);
-      letter-spacing: -0.3px;
-      line-height: 1.2;
-    }
-
-    .app-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-bottom: 20px;
-      min-height: 44px;
-      word-break: keep-all;
-    }
-
-    .app-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 16px 0;
-      border-top: 1px dashed var(--border-color);
-      border-bottom: 1px dashed var(--border-color);
-      margin-bottom: 20px;
-    }
-
-    .tag {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--tag-text);
-      background-color: var(--tag-bg);
-      padding: 5px 12px;
-      border-radius: var(--radius-tag);
-      white-space: nowrap;
-    }
-
-    .app-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: auto;
-    }
-
-    .btn-detail {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: #f8fafc;
-      border: 1px solid #cbd5e1;
-      color: #1e293b;
-      font-weight: 700;
-      font-size: 0.92rem;
-      padding: 12px 16px;
-      border-radius: var(--radius-btn);
-      transition: all 0.2s ease;
-    }
-
-    .btn-detail:hover {
-      background-color: #f1f5f9;
-      border-color: #94a3b8;
-    }
-
-    .btn-play {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: var(--brand-blue);
-      border: 1px solid var(--brand-blue);
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 0.92rem;
-      padding: 12px 16px;
-      border-radius: var(--radius-btn);
-      transition: all 0.2s ease;
-    }
-
-    .btn-play:hover {
-      background-color: var(--brand-blue-hover);
-      border-color: var(--brand-blue-hover);
-    }
-
-    /* About Section ("만든이 이야기") */
-    .about-section {
-      padding: 70px 0 80px;
-      border-top: 1px solid var(--border-color);
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .section-title {
-      font-size: 2.1rem;
-      font-weight: 800;
-      color: var(--text-main);
-      letter-spacing: -0.6px;
-      margin-bottom: 12px;
-    }
-
-    .section-desc {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      word-break: keep-all;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .value-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 36px 28px;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s ease;
-      text-align: left;
-    }
-
-    .value-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-card);
-    }
-
-    .value-icon-box {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 22px;
-    }
-
-    .value-icon-box.blue {
-      background-color: #e0f2fe;
-      color: #0284c7;
-    }
-
-    .value-icon-box.purple {
-      background-color: #ede9fe;
-      color: #7c3aed;
-    }
-
-    .value-icon-box.green {
-      background-color: #d1fae5;
-      color: #059669;
-    }
-
-    .value-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--text-main);
-      margin-bottom: 10px;
-    }
-
-    .value-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      word-break: keep-all;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #ffffff;
-      border-top: 1px solid var(--border-color);
-      padding: 36px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .footer-logo {
-      width: 32px;
-      height: 36px;
-      object-fit: contain;
-    }
-
-    .footer-info {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .footer-email {
-      color: var(--brand-blue);
-      font-weight: 600;
-    }
-
-    .footer-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .footer-divider {
-      color: #cbd5e1;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 16px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 12px;
-      padding-top: 16px;
-      border-top: 1px solid #f1f5f9;
-    }
-
-    .footer-links a:hover {
-      color: var(--brand-blue);
-      text-decoration: underline;
-    }
-
-    /* Responsive */
-    @media (max-width: 860px) {
-      .apps-grid {
-        grid-template-columns: 1fr;
-      }
-      .values-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero-title {
-        font-size: 1.85rem;
-      }
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .app-card-shadow:hover {
+      box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.08);
     }
   </style>
 </head>
-<body>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
 
-  <!-- Navigation Bar -->
-  <header>
-    <div class="container">
-      <div class="nav-inner">
-        <a href="./" class="brand">
-          <img src="icons/logo.png" alt="YK App Lab Logo">
-          <div class="brand-text">
-            <span class="brand-name">ykapplab</span>
-            <span class="brand-tagline">CREATIVE APP LABORATORY</span>
-          </div>
-        </a>
-        <nav class="nav-menu">
-          <a href="#apps" class="nav-link">앱 둘러보기</a>
-          <a href="#about" class="nav-link">스튜디오 소개</a>
-          <a href="mailto:ykapp.lab@gmail.com" class="nav-btn">고객 지원</a>
-        </nav>
+  <!-- Interactive Logo Switcher Ribbon (헤더 상단에서 두 시안을 실시간 비교) -->
+  <aside class="bg-slate-900 text-white text-xs py-2 px-4 border-b border-slate-800 z-50">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-bold border border-blue-500/30">로고 비교 선택기</span>
+        <span class="text-slate-300 hidden sm:inline">원하는 로고 시안을 클릭해 메인 페이지 적용 상태를 실시간으로 비교해 보세요:</span>
       </div>
+      <div class="flex items-center gap-2">
+        <button id="btnLogoB" onclick="switchActiveLogo('B')" class="px-3 py-1 rounded-lg font-bold text-xs transition-all bg-blue-600 text-white shadow-sm flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+          시안 B (블루-민트 랩 비커 / 공식)
+        </button>
+        <button id="btnLogoA" onclick="switchActiveLogo('A')" class="px-3 py-1 rounded-lg font-bold text-xs transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-1.5">
+          시안 A (오렌지 터치 토글)
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Dynamic Brand Logo Area -->
+      <a href="./" class="flex items-center space-x-3 group" title="와이케이앱랩 홈으로">
+        <!-- Dynamic Logo Symbol SVG -->
+        <div id="headerLogoSymbol" class="transition-transform group-hover:scale-105 duration-200 flex items-center">
+          <!-- Injected via switchActiveLogo -->
+        </div>
+        <!-- Dynamic Logo Typography -->
+        <div class="flex flex-col">
+          <span id="headerBrandText" class="font-black text-xl tracking-tight leading-none text-slate-900 dark:text-white">
+            yk<span class="text-blue-600">app</span><span class="text-teal-500 font-bold">lab</span>
+          </span>
+          <span id="headerSubText" class="text-[9.5px] font-bold tracking-widest uppercase text-slate-400 mt-1">
+            CREATIVE APP LABORATORY
+          </span>
+        </div>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="flex items-center space-x-3 sm:space-x-6">
+        <a href="#apps" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          앱 둘러보기
+        </a>
+        <a href="#about" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          스튜디오 소개
+        </a>
+        <a href="mailto:ykapp.lab@gmail.com" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors flex items-center gap-1.5 border border-slate-200 dark:border-slate-700">
+          <i class="ph-bold ph-paper-plane-tilt"></i>
+          고객 지원
+        </a>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-badge">
-        <span>✨</span> YK App Lab 공식 포털
+  <!-- Hero Section (SEO / ASO 최적화) -->
+  <section class="relative overflow-hidden pt-12 pb-10 sm:pt-16 sm:pb-16">
+    <!-- Background dynamic glow -->
+    <div id="heroGlow" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[360px] bg-gradient-to-tr from-blue-500/15 via-teal-400/10 to-transparent blur-3xl pointer-events-none rounded-full transition-all duration-500"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+      
+      <!-- Big Showcase Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm mb-5">
+        <div id="heroBadgeIcon" class="w-4 h-4 flex items-center justify-center"></div>
+        <span id="heroBadgeText" class="text-xs font-bold text-slate-700 dark:text-slate-200">
+          호기심을 유용한 앱으로 완성하는 모바일 연구소
+        </span>
       </div>
-      <h1 class="hero-title">일상의 가치를 더하는 스마트한 도구들</h1>
-      <p class="hero-desc">사용자의 소중한 하루를 더 간결하고 풍요롭게 만들어주는 안드로이드 앱 컬렉션입니다.</p>
-    </div>
-  </section>
 
-  <!-- Apps Showcase Section -->
-  <section class="apps-section" id="apps">
-    <div class="container">
-      <div class="apps-grid">
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.25]">
+        일상에 스며드는 모바일 경험,<br/>
+        <span id="heroGradientTitle" class="bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent transition-all duration-300">
+          ykapplab
+        </span>
+      </h1>
+      <p id="heroSubtitle" class="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        손끝의 터치 하나로 시작되는 편리한 일상. 감성 캘린더부터 스마트한 커피 타이머, 마인드셋 루틴, 원터치 타임로그까지 와이케이앱랩의 안드로이드 애플리케이션을 만나보세요.
+      </p>
 
-        <!-- App 1: 긍정메아리 (PosiEcho) -->
-        <div class="app-card">
-          <div class="app-top">
-            <img src="icons/posiecho.png" alt="긍정메아리 아이콘" class="app-icon">
-            <div class="app-info">
-              <div class="app-category">MINDSET & HABIT</div>
-              <h2 class="app-name">긍정메아리</h2>
-            </div>
-          </div>
-          <p class="app-desc">매일 아침 3분, 나를 바꾸는 긍정 확언과 셀프 마인드셋 루틴</p>
-          <div class="app-tags">
-            <span class="tag">#긍정확언</span>
-            <span class="tag">#명언</span>
-            <span class="tag">#마인드셋</span>
-            <span class="tag">#모닝루틴</span>
-            <span class="tag">#자존감</span>
-          </div>
-          <div class="app-actions">
-            <a href="./PosiEcho/" class="btn-detail">
-              <span>📑 자세히 보기</span>
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.posiecho.app" target="_blank" rel="noopener noreferrer" class="btn-play">
-              <span>▶ Google Play</span>
-            </a>
-          </div>
+      <!-- App Count & Store Badge -->
+      <div class="mt-6 flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+        <a href="https://play.google.com/store/apps/developer?id=%EC%99%80%EC%9D%B4%EC%BC%80%EC%9D%B4%EC%95%B1%EB%9E%A9%28ykapp+Lab%29" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-blue-600 transition-colors">
+          <i class="ph-fill ph-google-play-logo text-emerald-500 text-lg"></i>
+          <span class="font-medium">Google Play 공식 채널 서비스 중</span>
+        </a>
+        <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+        <div class="flex items-center gap-1.5">
+          <i class="ph-bold ph-sparkle text-amber-500 text-base"></i>
+          <span id="activeAppCount" class="font-medium">총 4개 프로젝트 배포 완료</span>
         </div>
-
-        <!-- App 2: 드립메이트 (DripMate) -->
-        <div class="app-card">
-          <div class="app-top">
-            <img src="icons/dripmate.png" alt="드립메이트 아이콘" class="app-icon">
-            <div class="app-info">
-              <div class="app-category">COFFEE & UTILITY</div>
-              <h2 class="app-name">드립메이트</h2>
-            </div>
-          </div>
-          <p class="app-desc">초보부터 바리스타까지, 완벽한 한 잔을 위한 핸드드립 스마트 타이머</p>
-          <div class="app-tags">
-            <span class="tag">#드립타이머</span>
-            <span class="tag">#gtt계산</span>
-            <span class="tag">#유틸리티</span>
-            <span class="tag">#타이머</span>
-          </div>
-          <div class="app-actions">
-            <a href="./dripmate/" class="btn-detail">
-              <span>📑 자세히 보기</span>
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.dripmate.app" target="_blank" rel="noopener noreferrer" class="btn-play">
-              <span>▶ Google Play</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 3: 소담달력 (Sodam Calendar) -->
-        <div class="app-card">
-          <div class="app-top">
-            <img src="icons/sodam.png" alt="소담달력 아이콘" class="app-icon">
-            <div class="app-info">
-              <div class="app-category">CALENDAR & WIDGET</div>
-              <h2 class="app-name">소담달력</h2>
-            </div>
-          </div>
-          <p class="app-desc">손없는 날, 음력 절기, 감성 위젯까지 한눈에 담은 직관적인 큰 글씨 달력</p>
-          <div class="app-tags">
-            <span class="tag">#소담달력</span>
-            <span class="tag">#달력위젯</span>
-            <span class="tag">#손없는날</span>
-            <span class="tag">#음력</span>
-            <span class="tag">#큰글씨달력</span>
-          </div>
-          <div class="app-actions">
-            <a href="./sodam-calendar/" class="btn-detail">
-              <span>📑 자세히 보기</span>
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.sodam.calendar" target="_blank" rel="noopener noreferrer" class="btn-play">
-              <span>▶ Google Play</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 4: 찰나 (CHALNA) -->
-        <div class="app-card">
-          <div class="app-top">
-            <img src="icons/chalna.png" alt="찰나 아이콘" class="app-icon">
-            <div class="app-info">
-              <div class="app-category">TIMELOG & PRODUCTIVITY</div>
-              <h2 class="app-name">찰나 (CHALNA)</h2>
-            </div>
-          </div>
-          <p class="app-desc">원터치 시간 기록부터 지도 동선 타임라인, 습관 잔디 관리까지</p>
-          <div class="app-tags">
-            <span class="tag">#찰나</span>
-            <span class="tag">#타임로그</span>
-            <span class="tag">#시간기록</span>
-            <span class="tag">#지도타임라인</span>
-            <span class="tag">#습관잔디</span>
-          </div>
-          <div class="app-actions">
-            <a href="./chalna/" class="btn-detail">
-              <span>📑 자세히 보기</span>
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.chalna.timelog" target="_blank" rel="noopener noreferrer" class="btn-play">
-              <span>▶ Google Play</span>
-            </a>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
+
+  <!-- Filter & Search Section -->
+  <section id="apps" class="max-w-6xl mx-auto px-4 sm:px-6 w-full pt-4 pb-6">
+    <div class="flex flex-col sm:flex-row gap-4 items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800">
+      
+      <!-- Category Tabs -->
+      <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto" id="filterContainer">
+        <button onclick="filterCategory('all')" data-cat="all" class="filter-btn active-tab px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-blue-600 text-white shadow-sm">
+          전체 보기
+        </button>
+        <button onclick="filterCategory('생산성')" data-cat="생산성" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+          생산성 & 캘린더
+        </button>
+        <button onclick="filterCategory('라이프스타일')" data-cat="라이프스타일" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+          라이프스타일 & 루틴
+        </button>
+        <button onclick="filterCategory('유틸리티')" data-cat="유틸리티" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+          유틸리티 & 타이머
+        </button>
+      </div>
+
+      <!-- Quick Search (SEO 키워드 연동) -->
+      <div class="relative w-full sm:w-72">
+        <i class="ph-bold ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+        <input 
+          type="text" 
+          id="searchInput" 
+          oninput="handleSearch()"
+          placeholder="앱 이름 또는 태그 검색 (예: 달력, 타이머)" 
+          class="w-full pl-10 pr-4 py-2 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-800 dark:text-slate-200 placeholder-slate-400"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- App Cards Grid Section (2x2 반응형 / 시안 융합) -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 w-full pb-20 flex-1">
+    <div id="appsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Cards rendered via JavaScript -->
+    </div>
+    
+    <!-- Empty state -->
+    <div id="noResults" class="hidden text-center py-20">
+      <div class="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mx-auto text-slate-400 mb-4">
+        <i class="ph-bold ph-magnifying-glass text-2xl"></i>
+      </div>
+      <h3 class="font-bold text-lg text-slate-700 dark:text-slate-300">일치하는 앱을 찾을 수 없습니다</h3>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">다른 키워드나 상단 카테고리 탭을 선택해 보세요.</p>
+    </div>
+  </main>
 
   <!-- About Section ("만든이 이야기") -->
-  <section class="about-section" id="about">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">만든이 이야기</h2>
-        <p class="section-desc">직접 사용하고 싶은 유용한 앱을 독립 개발하여 안드로이드 생태계에 배포하고 있습니다.</p>
+  <section id="about" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">만든이 이야기</h2>
+        <p class="mt-2.5 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
+          직접 사용하고 싶은 유용한 앱을 독립 개발하여 안드로이드 생태계에 배포하고 있습니다.
+        </p>
       </div>
 
-      <div class="values-grid">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
         <!-- Value 1 -->
-        <div class="value-card">
-          <div class="value-icon-box blue">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              <path d="M9 12l2 2 4-4"/>
-            </svg>
+        <div class="p-7 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 transition-transform hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center mx-auto mb-4 text-2xl">
+            <i class="ph-bold ph-shield-check"></i>
           </div>
-          <h3 class="value-title">개인정보 중심</h3>
-          <p class="value-desc">불필요한 권한이나 개인정보 수집을 지양하며 로컬 저장을 기본으로 합니다.</p>
+          <h3 class="font-bold text-base text-slate-800 dark:text-slate-200">개인정보 중심</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed">
+            불필요한 권한이나 개인정보 수집을 지양하며 로컬 저장을 기본으로 합니다.
+          </p>
         </div>
 
         <!-- Value 2 -->
-        <div class="value-card">
-          <div class="value-icon-box purple">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-            </svg>
+        <div class="p-7 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 transition-transform hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mx-auto mb-4 text-2xl">
+            <i class="ph-bold ph-lightning"></i>
           </div>
-          <h3 class="value-title">가볍고 빠른 반응</h3>
-          <p class="value-desc">군더더기 없는 최적화로 배터리와 기기 리소스를 최소한으로 소비합니다.</p>
+          <h3 class="font-bold text-base text-slate-800 dark:text-slate-200">가볍고 빠른 반응</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed">
+            군더더기 없는 최적화로 배터리와 기기 리소스를 최소한으로 소비합니다.
+          </p>
         </div>
 
         <!-- Value 3 -->
-        <div class="value-card">
-          <div class="value-icon-box green">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
-            </svg>
+        <div class="p-7 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 transition-transform hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-teal-100 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 flex items-center justify-center mx-auto mb-4 text-2xl">
+            <i class="ph-bold ph-hand-heart"></i>
           </div>
-          <h3 class="value-title">직관적인 인터페이스</h3>
-          <p class="value-desc">설명서 없이도 누구나 첫 화면에서 바로 익숙해질 수 있는 UI를 추구합니다.</p>
+          <h3 class="font-bold text-base text-slate-800 dark:text-slate-200">직관적인 인터페이스</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed">
+            설명서 없이도 누구나 첫 화면에서 바로 익숙해질 수 있는 UI를 추구합니다.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-left">
-          <img src="icons/logo.png" alt="YK App Lab Logo" class="footer-logo">
-          <div class="footer-info">
-            <div>© 2026 YK App Lab (와이케이앱랩). All rights reserved.</div>
-            <div>문의: <a href="mailto:ykapp.lab@gmail.com" class="footer-email">ykapp.lab@gmail.com</a></div>
+  <footer id="contact" class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col gap-6 text-xs text-slate-500 dark:text-slate-400">
+      
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div id="footerLogoSymbol" class="w-7 h-7 flex-shrink-0 flex items-center"></div>
+          <div>
+            <p class="font-semibold text-slate-700 dark:text-slate-300">© <span id="currentYear"></span> YK App Lab (와이케이앱랩). All rights reserved.</p>
+            <p class="mt-0.5">문의: <a href="mailto:ykapp.lab@gmail.com" class="hover:underline text-blue-600 dark:text-blue-400 font-medium">ykapp.lab@gmail.com</a></p>
           </div>
         </div>
-        <div class="footer-right">
+        <div class="flex items-center space-x-3 text-slate-400">
           <span>안드로이드 전문 개발 스튜디오</span>
-          <span class="footer-divider">•</span>
-          <span>Google Play 공식 채널</span>
+          <span>•</span>
+          <a href="https://play.google.com/store/apps/developer?id=%EC%99%80%EC%9D%B4%EC%BC%80%EC%9D%B4%EC%95%B1%EB%9E%A9%28ykapp+Lab%29" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors font-medium text-slate-600 dark:text-slate-300">
+            Google Play 공식 채널
+          </a>
         </div>
       </div>
 
-      <div class="footer-links">
-        <span>법적 고지:</span>
-        <a href="./privacy_policy.html">통합 개인정보처리방침</a>
-        <a href="./sodam-calendar/privacy.html">소담달력 방침</a>
-        <a href="./dripmate_privacy.html">드립메이트 방침</a>
-        <a href="./posiecho_privacy.html">긍정메아리 방침</a>
-        <a href="./app-ads.txt">app-ads.txt</a>
+      <div class="pt-4 border-t border-slate-200/60 dark:border-slate-800 flex flex-wrap gap-x-4 gap-y-1.5 text-[11px] text-slate-400">
+        <span class="font-medium text-slate-500">법적 고지 및 정책:</span>
+        <a href="./privacy_policy.html" class="hover:underline hover:text-slate-600 dark:hover:text-slate-300">통합 개인정보처리방침</a>
+        <span>·</span>
+        <a href="./sodam-calendar/privacy.html" class="hover:underline hover:text-slate-600 dark:hover:text-slate-300">소담달력 방침</a>
+        <span>·</span>
+        <a href="./dripmate_privacy.html" class="hover:underline hover:text-slate-600 dark:hover:text-slate-300">드립메이트 방침</a>
+        <span>·</span>
+        <a href="./posiecho_privacy.html" class="hover:underline hover:text-slate-600 dark:hover:text-slate-300">긍정메아리 방침</a>
+        <span>·</span>
+        <a href="./app-ads.txt" class="hover:underline hover:text-slate-600 dark:hover:text-slate-300">app-ads.txt</a>
       </div>
+
     </div>
   </footer>
 
+  <!-- Application Logic & Data -->
+  <script>
+    // ==========================================
+    // 🎨 로고 시안 SVG 벡터 데이터 정의 (인터랙티브 스위처)
+    // ==========================================
+    
+    // 시안 A: 오렌지 스퀘어클 + 토글 버튼 + 터치 인터랙션
+    const LOGO_A_SVG = `
+      <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-sm">
+        <rect x="4" y="4" width="92" height="92" rx="26" stroke="#D96800" stroke-width="7" fill="#FFFFFF"/>
+        <rect x="46" y="20" width="36" height="18" rx="9" fill="#2B2D31"/>
+        <circle cx="55" cy="29" r="7" fill="#E66A00"/>
+        <path d="M72 23C74 24.5 75 26.5 75 29C75 31.5 74 33.5 72 35" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M76 20C79 22 80 25.5 80 29C80 32.5 79 36 76 38" stroke="#E66A00" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M22 28L34 47V68" stroke="#E66A00" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M46 28L34 47" stroke="#E66A00" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M49 46L68 68" stroke="#D96800" stroke-width="9" stroke-linecap="round"/>
+        <rect x="22" y="58" width="32" height="15" rx="7.5" fill="#2B2D31"/>
+        <circle cx="43" cy="65.5" r="5.5" fill="#E66A00"/>
+      </svg>
+    `;
+
+    // 시안 B: 블루 & 민트 실험실 플라스크(Lab) + YK + 앱 모바일 그리드
+    const LOGO_B_SVG = `
+      <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-sm">
+        <path d="M22 20L38 46V76" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M52 20L38 46" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M38 52L24 74C21 78.5 24 82 29 82H57C62 82 65 78.5 62 74L50 56" stroke="#2563EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 73C33 70 45 76 58 72L55 77H30L28 73Z" fill="#34D399"/>
+        <circle cx="45" cy="18" r="3" fill="#34D399"/>
+        <rect x="49" y="20" width="31" height="44" rx="10" stroke="#34D399" stroke-width="7" fill="none"/>
+        <rect x="58" y="29" width="8" height="8" rx="2.5" fill="#2563EB"/>
+        <rect x="58" y="42" width="8" height="8" rx="2.5" fill="#2563EB"/>
+        <rect x="58" y="52" width="8" height="6" rx="2" fill="#2563EB"/>
+      </svg>
+    `;
+
+    // 로고 전환 함수
+    function switchActiveLogo(type) {
+      const headerSymbol = document.getElementById("headerLogoSymbol");
+      const footerSymbol = document.getElementById("footerLogoSymbol");
+      const heroBadgeIcon = document.getElementById("heroBadgeIcon");
+      const heroGlow = document.getElementById("heroGlow");
+      const headerBrand = document.getElementById("headerBrandText");
+      const headerSub = document.getElementById("headerSubText");
+      const heroTitle = document.getElementById("heroGradientTitle");
+      const heroBadge = document.getElementById("heroBadgeText");
+      const btnA = document.getElementById("btnLogoA");
+      const btnB = document.getElementById("btnLogoB");
+
+      if (type === 'A') {
+        headerSymbol.innerHTML = LOGO_A_SVG;
+        footerSymbol.innerHTML = LOGO_A_SVG;
+        heroBadgeIcon.innerHTML = `<i class="ph-bold ph-hand-tap text-amber-500 text-sm"></i>`;
+        headerBrand.innerHTML = `ykapp<span class="text-amber-500">lab</span>`;
+        headerSub.textContent = "MOBILE INTERACTION";
+        heroBadge.textContent = "터치와 상호작용의 즐거움, 와이케이앱랩";
+        heroTitle.className = "bg-gradient-to-r from-amber-500 via-orange-600 to-amber-700 bg-clip-text text-transparent transition-all duration-300";
+        heroGlow.className = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[360px] bg-gradient-to-tr from-amber-500/15 via-orange-400/10 to-transparent blur-3xl pointer-events-none rounded-full transition-all duration-500";
+
+        btnA.className = "px-3 py-1 rounded-lg font-bold text-xs transition-all bg-amber-500 text-white shadow-sm flex items-center gap-1.5";
+        btnA.innerHTML = `<span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> 시안 A (오렌지 터치 토글)`;
+        btnB.className = "px-3 py-1 rounded-lg font-bold text-xs transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-1.5";
+        btnB.innerHTML = `시안 B (블루-민트 랩 비커)`;
+      } else {
+        headerSymbol.innerHTML = LOGO_B_SVG;
+        footerSymbol.innerHTML = LOGO_B_SVG;
+        heroBadgeIcon.innerHTML = `<i class="ph-bold ph-flask text-blue-500 text-sm"></i>`;
+        headerBrand.innerHTML = `yk<span class="text-blue-600">app</span><span class="text-teal-500 font-bold">lab</span>`;
+        headerSub.textContent = "CREATIVE APP LABORATORY";
+        heroBadge.textContent = "호기심을 유용한 앱으로 완성하는 모바일 연구소";
+        heroTitle.className = "bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent transition-all duration-300";
+        heroGlow.className = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[360px] bg-gradient-to-tr from-blue-500/15 via-teal-400/10 to-transparent blur-3xl pointer-events-none rounded-full transition-all duration-500";
+
+        btnB.className = "px-3 py-1 rounded-lg font-bold text-xs transition-all bg-blue-600 text-white shadow-sm flex items-center gap-1.5";
+        btnB.innerHTML = `<span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> 시안 B (블루-민트 랩 비커 / 공식)`;
+        btnA.className = "px-3 py-1 rounded-lg font-bold text-xs transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-1.5";
+        btnA.innerHTML = `시안 A (오렌지 터치 토글)`;
+      }
+    }
+
+    // ==========================================
+    // 📱 실제 4개 앱 통합 데이터베이스 (SEO/ASO 키워드 반영)
+    // ==========================================
+    const APPS_DATA = [
+      {
+        id: "PosiEcho",
+        title: "긍정메아리 (PosiEcho)",
+        tagline: "마음에 울리는 긍정확언 · 명언 루틴",
+        category: "라이프스타일",
+        badge: "인기",
+        iconImg: "./icons/posiecho.png",
+        iconGradient: "from-emerald-400 to-teal-500",
+        iconType: "ph-sparkle",
+        landingUrl: "./PosiEcho/",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.posiecho.app",
+        description: "매일 아침 3분, 나를 바꾸는 긍정 확언과 셀프 마인드셋 루틴. 건강한 마음 습관과 자존감을 북돋워 주는 멘탈 루틴 동반자입니다.",
+        tags: ["긍정확언", "명언", "마인드셋", "모닝루틴", "자존감"]
+      },
+      {
+        id: "dripmate",
+        title: "드립메이트 (DripMate)",
+        tagline: "핸드드립 스마트 타이머 & 수액 gtt 계산기",
+        category: "유틸리티",
+        badge: "전문도구",
+        iconImg: "./icons/dripmate.png",
+        iconGradient: "from-sky-400 to-blue-600",
+        iconType: "ph-drop",
+        landingUrl: "./dripmate/",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.dripmate.app",
+        description: "초보부터 바리스타까지 완벽한 한 잔을 위한 핸드드립 타이머이자, 정확한 방울 속도(gtt)와 주입 시간을 손쉽게 계산하는 스마트 유틸리티입니다.",
+        tags: ["드립타이머", "gtt계산", "유틸리티", "타이머"]
+      },
+      {
+        id: "sodam-calendar",
+        title: "소담달력 (Sodam Calendar)",
+        tagline: "음력 달력 · 24절기 · 손없는날 · 감성 달력 위젯",
+        category: "생산성",
+        badge: "인기",
+        iconImg: "./icons/sodam.png",
+        iconGradient: "from-amber-400 to-rose-400",
+        iconType: "ph-calendar-blank",
+        landingUrl: "./sodam-calendar/",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.sodam.calendar",
+        description: "바쁜 일상 속에서도 우리 고유의 절기와 음력, 손없는 날을 놓치지 않도록 깔끔하고 큰 글씨로 담아낸 감성 캘린더 & 홈 위젯입니다.",
+        tags: ["소담달력", "달력위젯", "손없는날", "음력", "큰글씨달력"]
+      },
+      {
+        id: "chalna",
+        title: "찰나 (CHALNA)",
+        tagline: "원터치 타임로그 · 지도 동선 · 습관 잔디 관리",
+        category: "생산성",
+        badge: "추천",
+        iconImg: "./icons/chalna.png",
+        iconGradient: "from-indigo-500 to-purple-500",
+        iconType: "ph-clock-countdown",
+        landingUrl: "./chalna/",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.chalna.timelog",
+        description: "원터치로 기록하는 소중한 하루의 순간. 시간 기록부터 지도 동선 타임라인, 습관 잔디와 다이어리 리포트까지 한눈에 관리하세요.",
+        tags: ["찰나", "타임로그", "시간기록", "지도타임라인", "습관잔디"]
+      }
+    ];
+
+    let currentCategory = "all";
+    let searchQuery = "";
+
+    // 렌더링 함수
+    function renderApps() {
+      const container = document.getElementById("appsGrid");
+      const noResults = document.getElementById("noResults");
+      container.innerHTML = "";
+
+      const filtered = APPS_DATA.filter(app => {
+        const matchCategory = currentCategory === "all" || app.category === currentCategory;
+        const q = searchQuery.toLowerCase().trim();
+        const matchQuery = !q || 
+          app.title.toLowerCase().includes(q) || 
+          app.tagline.toLowerCase().includes(q) ||
+          app.description.toLowerCase().includes(q) || 
+          app.tags.some(t => t.toLowerCase().includes(q));
+
+        return matchCategory && matchQuery;
+      });
+
+      if (filtered.length === 0) {
+        noResults.classList.remove("hidden");
+      } else {
+        noResults.classList.add("hidden");
+      }
+
+      filtered.forEach(app => {
+        const card = document.createElement("article");
+        card.className = "glass-card border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 sm:p-7 flex flex-col justify-between app-card-shadow transition-all duration-200 relative group";
+
+        // 태그 HTML
+        const tagsHtml = app.tags.map(t => 
+          `<span class="px-2.5 py-1 text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full">#${t}</span>`
+        ).join('');
+
+        // 뱃지 HTML
+        const badgeColor = app.badge === '인기' ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300' :
+                           app.badge === '추천' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300' :
+                           'bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-300';
+
+        card.innerHTML = `
+          <div>
+            <!-- 상단 아이콘 + 카테고리/뱃지 -->
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="relative w-16 h-16 rounded-2xl overflow-hidden shadow-md bg-gradient-to-tr ${app.iconGradient} flex items-center justify-center text-white text-3xl flex-shrink-0">
+                <img 
+                  src="${app.iconImg}" 
+                  alt="${app.title} 앱 아이콘" 
+                  class="w-full h-full object-cover rounded-2xl absolute inset-0 z-10 transition-opacity duration-300"
+                  onerror="this.style.display='none';"
+                />
+                <i class="ph-fill ${app.iconType}"></i>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 text-xs font-bold rounded-full ${badgeColor}">
+                  ${app.badge}
+                </span>
+                <span class="text-xs text-slate-400 font-semibold tracking-wider uppercase">${app.category}</span>
+              </div>
+            </div>
+
+            <!-- 제목 및 한 줄 요약 -->
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              ${app.title}
+            </h3>
+            <p class="text-xs font-semibold text-blue-600 dark:text-blue-400 mt-1">
+              ${app.tagline}
+            </p>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-3 leading-relaxed">
+              ${app.description}
+            </p>
+
+            <!-- 해시태그 목록 -->
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3.5 border-t border-slate-100 dark:border-slate-800/80">
+              ${tagsHtml}
+            </div>
+          </div>
+
+          <!-- 하단 CTA 액션 버튼 (자세히 보기 + Google Play) -->
+          <div class="grid grid-cols-2 gap-2.5 pt-5 mt-4 border-t border-slate-100 dark:border-slate-800/80">
+            <a href="${app.landingUrl}" 
+               class="flex items-center justify-center gap-1.5 py-2.5 px-3 text-xs sm:text-sm font-bold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+               title="${app.title} 상세 소개 및 매뉴얼 보기">
+              <i class="ph-bold ph-article"></i>
+              자세히 보기
+            </a>
+            <a href="${app.playStoreUrl}" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="flex items-center justify-center gap-1.5 py-2.5 px-3 text-xs sm:text-sm font-bold rounded-xl bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition-colors"
+               title="${app.title} 구글 플레이 스토어로 이동">
+              <i class="ph-bold ph-google-play-logo text-emerald-300"></i>
+              Google Play
+            </a>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    // 카테고리 필터링 핸들러
+    function filterCategory(cat) {
+      currentCategory = cat;
+      const buttons = document.querySelectorAll(".filter-btn");
+      buttons.forEach(btn => {
+        if (btn.getAttribute("data-cat") === cat) {
+          btn.className = "filter-btn active-tab px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-blue-600 text-white shadow-sm";
+        } else {
+          btn.className = "filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700";
+        }
+      });
+      renderApps();
+    }
+
+    // 검색 핸들러 (실시간 필터링)
+    function handleSearch() {
+      searchQuery = document.getElementById("searchInput").value;
+      renderApps();
+    }
+
+    // 초기화 및 연도 표시
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+      document.getElementById("activeAppCount").textContent = `총 ${APPS_DATA.length}개 앱 출시 완료`;
+      // 기본 로고 후보 B (블루-민트 랩 비커)로 공식 설정 (A 버튼 클릭 시 오렌지 토글로 언제든 전환 가능)
+      switchActiveLogo('B');
+      renderApps();
+    });
+  </script>
 </body>
 </html>
-<!-- v1.0.1 -->
