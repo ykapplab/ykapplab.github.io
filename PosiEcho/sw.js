@@ -1,13 +1,17 @@
-const CACHE_NAME = 'posi-echo-v1.0.12';
+const CACHE_NAME = 'posi-echo-v1.0.14';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './app.html',
+  './landing.css',
+  './landing.js',
   './style.css',
   './app.js',
+  './quotes-data.js',
+  './confetti.browser.min.js',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
-  './icon-badge.png',
   './apple-touch-icon.png'
 ];
 

@@ -1,0 +1,63 @@
+# ==========================================
+# Android Builds, Bundles & Binaries
+# ==========================================
+*.aab
+*.apk
+*.ap_
+*.dex
+
+# ==========================================
+# Keystores, Certificates & Private Keys
+# ==========================================
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+*.pk8
+*.der
+
+# ==========================================
+# Environment Variables & Secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+local.properties
+
+# ==========================================
+# Operating System Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Thumbs.db:encryptable
+desktop.ini
+$RECYCLE.BIN/
+
+# ==========================================
+# IDE & Editor Configurations
+# ==========================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.bak
+
+# ==========================================
+# Logs & Temporary Files
+# ==========================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+node_modules/
+dist/
+build/
