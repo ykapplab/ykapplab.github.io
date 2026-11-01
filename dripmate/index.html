@@ -108,15 +108,17 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 18px;
       list-style: none;
+      white-space: nowrap;
     }
 
     .nav-links a {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--text-muted);
       transition: color 0.2s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
@@ -891,7 +893,6 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="../" style="color: var(--primary); font-weight: 700;">🏠 메인 포털</a></li>
         <li><a href="#features">주요 기능</a></li>
         <li><a href="#screenshots">스크린샷</a></li>
         <li><a href="#guide">바리스타 가이드</a></li>

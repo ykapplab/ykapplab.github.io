@@ -188,17 +188,19 @@ img {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 18px;
   list-style: none;
+  white-space: nowrap;
 }
 
 .nav-link {
-  font-size: 0.96rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-muted);
   transition: color var(--transition-fast);
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
