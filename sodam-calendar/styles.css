@@ -207,6 +207,28 @@ h1, h2, h3, h4, .serif-font {
   gap: 12px;
 }
 
+
+.btn-nav-portal {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  background-color: #f5f2ed;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: 1px solid #e2ddd5;
+  transition: all var(--transition-fast);
+}
+
+.btn-nav-portal:hover {
+  background-color: #e8e2d8;
+  color: var(--accent-red);
+  transform: translateY(-1px);
+}
+
 .btn-nav-download {
   display: inline-flex;
   align-items: center;
