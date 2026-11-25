@@ -31,6 +31,35 @@
       padding: 28px 24px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     }
+    .top-nav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .top-nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(255, 122, 0, 0.16);
+      border: 1px solid rgba(255, 167, 38, 0.35);
+      color: #ffe082;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .top-nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .top-nav-link:hover {
+      color: #ffe082;
+      text-decoration: underline;
+    }
     .lang-bar {
       display: flex;
       gap: 8px;
@@ -86,6 +115,10 @@
 </head>
 <body>
   <div class="container">
+    <div class="top-nav">
+      <a href="./" class="top-nav-pill">← YK App Lab 메인으로</a>
+      <a href="campfire/" class="top-nav-link">마음을 태우는 숲 소개로 이동</a>
+    </div>
     <div class="lang-bar">
       <button class="lang-btn active" onclick="setLang('ko', this)">한국어</button>
       <button class="lang-btn" onclick="setLang('en', this)">English</button>

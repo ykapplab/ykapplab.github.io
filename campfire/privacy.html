@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Campfire: Mind Forest</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #121826;
+      --border: rgba(255, 167, 38, 0.25);
+      --accent: #ffa726;
+      --text: #eceff1;
+      --muted: #b0bec5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 16px 64px;
+      background: radial-gradient(circle at top, #182238 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", "Noto Sans JP", sans-serif;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+    .top-nav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .top-nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(255, 122, 0, 0.16);
+      border: 1px solid rgba(255, 167, 38, 0.35);
+      color: #ffe082;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .top-nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .top-nav-link:hover {
+      color: #ffe082;
+      text-decoration: underline;
+    }
+    .lang-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .lang-btn.active {
+      background: rgba(255, 122, 0, 0.22);
+      color: #ffe082;
+      border-color: var(--accent);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      color: #ffe082;
+    }
+    .updated {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    h2 {
+      margin-top: 24px;
+      font-size: 17px;
+      color: var(--accent);
+    }
+    p, li {
+      color: var(--text);
+      font-size: 15px;
+    }
+    a { color: #80ffd4; }
+    .hidden { display: none; }
+    .note {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 14px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-nav">
+      <a href="../" class="top-nav-pill">← YK App Lab 메인으로</a>
+      <a href="index.html" class="top-nav-link">마음을 태우는 숲 소개로 이동</a>
+    </div>
+
+    <div class="lang-bar">
+      <button class="lang-btn active" onclick="setLang('ko', this)">한국어</button>
+      <button class="lang-btn" onclick="setLang('en', this)">English</button>
+      <button class="lang-btn" onclick="setLang('ja', this)">日本語</button>
+    </div>
+
+    <!-- KOREAN -->
+    <section id="lang-ko">
+      <h1>🔥 마음을 태우는 숲 (Campfire: Mind Forest) 개인정보 처리방침</h1>
+      <div class="updated">시행일: 2026년 11월 25일</div>
+
+      <p><strong>마음을 태우는 숲(Campfire: Mind Forest)</strong>(이하 "앱")은 사용자의 사생활과 감정의 안전을 최우선으로 생각합니다. 본 개인정보 처리방침은 앱에서 처리되는 정보의 범위와 광고 서비스 연동에 대해 설명합니다.</p>
+
+      <h2>1. 사용자가 작성한 글 및 앱 내 데이터</h2>
+      <ul>
+        <li><strong>완전 휘발 모드 (기본값):</strong> 사용자가 모닥불에 던져 태운 문구는 소각 애니메이션 직후 메모리에서 즉시 파기되며, 기기 저장소나 외부 서버로 일절 전송·저장되지 않습니다.</li>
+        <li><strong>불씨로 간직하기 (선택 기능):</strong> 사용자가 직접 스위치를 켜서 보관함에 저장한 문구는 오직 사용자의 기기 내부(SharedPreferences)에만 저장되며, 개발자 서버로 전송되지 않습니다.</li>
+        <li><strong>설정 및 진행 상태:</strong> 온기 포인트, 사운드 믹서 볼륨, 별빛 패스 만료 시간 등 앱 설정은 기기 내부에만 저장됩니다.</li>
+      </ul>
+
+      <h2>2. 제3자 광고 SDK (Google AdMob &amp; UMP)</h2>
+      <p>앱은 배너 및 전면 광고를 표시하지 않으며, 사용자가 직접 선택한 경우에만 <strong>보상형 동영상 광고(Google AdMob)</strong>를 제공합니다. 광고 제공 및 유럽(EEA/UK) 동의 관리를 위해 Google Mobile Ads SDK 및 Google User Messaging Platform(UMP) SDK를 사용하며, 이 과정에서 Google이 아래 정보를 자동 수집·처리할 수 있습니다.</p>
+      <ul>
+        <li>광고 ID (Android Advertising ID)</li>
+        <li>IP 주소 기반 대략적 위치 정보, 기기 및 앱 상호작용(광고 노출·클릭), 오류 및 성능 진단 정보</li>
+      </ul>
+      <p>자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a> 및 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google 파트너 사이트 데이터 사용 안내</a>를 참고해 주세요.</p>
+
+      <h2>3. 동의 철회 및 데이터 삭제 방법</h2>
+      <ul>
+        <li>앱 내 <strong>[도감 &gt; 후원]</strong> 탭에서 '광고 개인정보 설정'이 표시되는 지역의 사용자는 언제든지 광고 동의 설정을 변경할 수 있습니다.</li>
+        <li>Android 기기 설정 &gt; 개인정보 보호 &gt; 광고 메뉴에서 광고 ID를 재설정하거나 삭제할 수 있습니다.</li>
+        <li>기기 내 저장된 불씨 보관함 및 모든 앱 데이터는 앱 내 삭제 버튼 또는 앱 제거(언인스톨)를 통해 즉시 완전히 삭제됩니다.</li>
+      </ul>
+
+      <h2>4. 아동의 개인정보 보호</h2>
+      <p>본 앱은 만 13세 미만(또는 거주 국가 법정 최소 연령 미만) 아동을 대상으로 하지 않으며, 아동의 개인정보를 고의로 수집하지 않습니다.</p>
+
+      <h2>5. 문의처</h2>
+      <p>개인정보 처리방침과 관련한 문의는 아래 개발자 이메일로 연락해 주세요.</p>
+      <div class="note">문의 이메일: <a href="mailto:ykapp.lab@gmail.com"><strong>ykapp.lab@gmail.com</strong></a></div>
+    </section>
+
+    <!-- ENGLISH -->
+    <section id="lang-en" class="hidden">
+      <h1>🔥 Campfire: Mind Forest — Privacy Policy</h1>
+      <div class="updated">Effective Date: November 25, 2026</div>
+
+      <p><strong>Campfire: Mind Forest</strong> ("the App") respects your privacy and emotional safety. This Privacy Policy explains what data is handled on your device and how optional rewarded ads work.</p>
+
+      <h2>1. Written Thoughts &amp; Local App Data</h2>
+      <ul>
+        <li><strong>Burn Away Mode (Default):</strong> Thoughts tossed into the campfire are immediately discarded from memory after the burning animation and are never saved on disk or transmitted to any server.</li>
+        <li><strong>Keep as Ember (Optional):</strong> Notes you explicitly choose to keep are stored strictly locally on your device (SharedPreferences) and are never uploaded to external servers.</li>
+        <li><strong>App Preferences:</strong> Warmth points, sound mixer levels, and Night Pass timestamps are stored locally on your device only.</li>
+      </ul>
+
+      <h2>2. Third-Party Advertising SDK (Google AdMob &amp; UMP)</h2>
+      <p>The App contains zero banner or interstitial ads. Only user-initiated <strong>rewarded video ads</strong> are provided via Google AdMob, along with Google User Messaging Platform (UMP) for regional consent management. Google may automatically process:</p>
+      <ul>
+        <li>Android Advertising ID</li>
+        <li>Approximate location derived from IP, ad interaction signals, and crash/performance diagnostics</li>
+      </ul>
+      <p>Please review <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps</a>.</p>
+
+      <h2>3. Managing Consent &amp; Deleting Data</h2>
+      <ul>
+        <li>In eligible regions (such as EEA/UK), you can update your ad privacy choices anytime from <strong>Guide &gt; Support &gt; Ad Privacy Settings</strong> inside the App.</li>
+        <li>You can reset or delete your Android Advertising ID in your device Settings &gt; Privacy &gt; Ads.</li>
+        <li>All local embers and preferences can be deleted inside the App or by uninstalling the App.</li>
+      </ul>
+
+      <h2>4. Children's Privacy</h2>
+      <p>The App is not directed to children under 13 (or the applicable minimum age in your jurisdiction), and we do not knowingly collect personal data from children.</p>
+
+      <h2>5. Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy, please contact the developer:</p>
+      <div class="note">Contact Email: <a href="mailto:ykapp.lab@gmail.com"><strong>ykapp.lab@gmail.com</strong></a></div>
+    </section>
+
+    <!-- JAPANESE -->
+    <section id="lang-ja" class="hidden">
+      <h1>🔥 心を燃やす森 (Campfire: Mind Forest) プライバシーポリシー</h1>
+      <div class="updated">施行日: 2026年11月25日</div>
+
+      <p><strong>心を燃やす森 (Campfire: Mind Forest)</strong>（以下「本アプリ」）は、利用者のプライバシーを尊重します。本ポリシーでは、端末内で扱われるデータおよび任意のリワード広告に関する情報の取り扱いを説明します。</p>
+
+      <h2>1. 入力内容およびアプリ内データ</h2>
+      <ul>
+        <li><strong>完全に燃やすモード（初期設定）：</strong>焚き火にくべた言葉はアニメーション終了後ただちにメモリから破棄され、端末内への保存や外部サーバーへの送信は一切行いません。</li>
+        <li><strong>残り火として残す（任意機能）：</strong>利用者がスイッチをオンにして保存した内容は、利用者の端末内（SharedPreferences）のみに保存され、外部へ送信されません。</li>
+        <li><strong>アプリ設定：</strong>ぬくもりポイント、サウンド設定、星明かりパスの状態などは端末内のみに保存されます。</li>
+      </ul>
+
+      <h2>2. 第三者広告 SDK（Google AdMob・UMP）</h2>
+      <p>本アプリにはバナー広告や強制的な全画面広告はありません。利用者が任意で選択した場合にのみ、Google AdMob による<strong>リワード動画広告</strong>を表示します。広告配信および地域の同意管理（UMP）のため、Google が以下の情報を処理する場合があります。</p>
+      <ul>
+        <li>Android 広告 ID（Advertising ID）</li>
+        <li>IP アドレスに基づくおおよその位置情報、広告とのインタラクション、診断およびパフォーマンス情報</li>
+      </ul>
+      <p>詳細は <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a> および <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google のパートナーサイトやアプリからの情報使用について</a> をご確認ください。</p>
+
+      <h2>3. 同意の変更およびデータの削除</h2>
+      <ul>
+        <li>対象地域（EEA・英国等）では、アプリ内の <strong>[図鑑 &gt; 応援 &gt; 広告のプライバシー設定]</strong> からいつでも同意設定を変更できます。</li>
+        <li>端末の [設定] &gt; [プライバシー] &gt; [広告] から広告 ID のリセット・削除が可能です。</li>
+        <li>端末内の残り火データおよび設定は、アプリ内削除またはアプリのアンインストールによって完全に削除されます。</li>
+      </ul>
+
+      <h2>4. お子様のプライバシー</h2>
+      <p>本アプリは 13 歳未満（または各地域の法定最低年齢未満）のお子様を対象としておらず、意図的に個人情報を収集することはありません。</p>
+
+      <h2>5. お問い合わせ</h2>
+      <p>本ポリシーに関するお問い合わせは、以下の連絡先までお願いいたします。</p>
+      <div class="note">連絡先メール: <a href="mailto:ykapp.lab@gmail.com"><strong>ykapp.lab@gmail.com</strong></a></div>
+    </section>
+  </div>
+
+  <script>
+    function setLang(lang, btn) {
+      ['ko', 'en', 'ja'].forEach(function (code) {
+        document.getElementById('lang-' + code).classList.toggle('hidden', code !== lang);
+      });
+      document.querySelectorAll('.lang-btn').forEach(function (el) {
+        el.classList.remove('active');
+      });
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
