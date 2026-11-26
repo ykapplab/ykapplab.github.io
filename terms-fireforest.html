@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Campfire: Mind Forest</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #121826;
+      --border: rgba(255, 167, 38, 0.25);
+      --accent: #ffa726;
+      --text: #eceff1;
+      --muted: #b0bec5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 16px 64px;
+      background: radial-gradient(circle at top, #182238 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", "Noto Sans JP", sans-serif;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+    .lang-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .lang-btn.active {
+      background: rgba(255, 122, 0, 0.22);
+      color: #ffe082;
+      border-color: var(--accent);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      color: #ffe082;
+    }
+    .updated {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    h2 {
+      margin-top: 24px;
+      font-size: 17px;
+      color: var(--accent);
+    }
+    p, li {
+      color: var(--text);
+      font-size: 15px;
+    }
+    a { color: #80ffd4; }
+    .hidden { display: none; }
+    .note {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 14px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-bar">
+      <button class="lang-btn active" data-lang="ko" onclick="setLang('ko', this)">한국어</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en', this)">English</button>
+      <button class="lang-btn" data-lang="ja" onclick="setLang('ja', this)">日本語</button>
+    </div>
+
+    <!-- KOREAN -->
+    <section id="lang-ko">
+      <h1>🔥 마음을 태우는 숲 (Campfire: Mind Forest) 서비스 이용약관</h1>
+      <div class="updated">시행일: 2026년 11월 26일</div>
+
+      <p>본 약관은 <strong>마음을 태우는 숲(Campfire: Mind Forest)</strong>(이하 "앱")의 이용과 관련하여 개발자와 사용자 간의 권리, 의무 및 기본적인 이용 조건을 규정합니다.</p>
+
+      <h2>1. 목적 및 약관의 동의</h2>
+      <p>사용자는 앱을 설치하거나 이용함으로써 본 이용약관에 동의한 것으로 간주됩니다. 본 약관에 동의하지 않으실 경우 앱 이용을 중단하고 기기에서 앱을 삭제하실 수 있습니다.</p>
+
+      <h2>2. 서비스 내용 및 기기 내 데이터 처리</h2>
+      <ul>
+        <li>앱은 무료로 제공되는 감정 정리 및 모닥불 ASMR 힐링 애플리케이션입니다.</li>
+        <li><strong>완전 휘발 모드 (기본값):</strong> 모닥불에 던져 태운 문구는 소각 연출 직후 메모리에서 즉시 파기되며 저장되거나 외부 서버로 전송되지 않습니다.</li>
+        <li><strong>불씨로 간직하기 (선택 기능):</strong> 사용자가 직접 스위치를 켜서 보관함에 저장한 내용 및 앱 설정(온기, 사운드 설정 등)은 <strong>사용자의 기기 내부에만 저장</strong>되며 클라우드 백업을 제공하지 않습니다. 따라서 앱을 삭제하거나 기기 데이터를 초기화하면 저장된 내용은 영구적으로 삭제되며 복구할 수 없습니다.</li>
+      </ul>
+
+      <h2>3. 선택형 보상형 광고 및 앱 내 혜택</h2>
+      <ul>
+        <li>앱은 유료 인앱 결제를 포함하지 않으며, 강제적인 배너 광고나 전면 광고를 표시하지 않습니다.</li>
+        <li>사용자가 직접 버튼을 눌러 시청을 선택한 <strong>Google AdMob 보상형 동영상 광고</strong>를 완료한 경우, <strong>24시간 별빛 패스</strong>(오로라 불꽃, 멀티 ASMR 믹서, 수면 타이머) 또는 <strong>황금 등불 &amp; 반딧불이</strong> 등의 앱 내 혜택이 제공됩니다.</li>
+        <li>광고 제공 여부와 로딩 상태는 네트워크 연결 상태 및 Google AdMob 등 제3자 광고 제공사의 인벤토리 상황에 따라 달라질 수 있습니다.</li>
+      </ul>
+
+      <h2>4. 비의료적 힐링 안내 (면책)</h2>
+      <p>앱은 일상적인 휴식, 감정 환기 및 마음 정리를 돕기 위한 힐링 콘텐츠입니다. 본 앱은 전문적인 의학적 조언, 진단, 심리 상담 또는 정신건강 치료를 대체하지 않으며, 전문적인 도움이 필요한 경우 반드시 의료 기관이나 전문가와 상담하시기 바랍니다.</p>
+
+      <h2>5. 지식재산권 및 금지 행위</h2>
+      <ul>
+        <li>앱에 포함된 소스 코드, UI 디자인, 그래픽, 오디오 리소스, 캐릭터 및 텍스트(사용자가 직접 입력한 메모 제외)에 관한 지식재산권은 개발자 또는 정당한 권리자에게 있습니다.</li>
+        <li>사용자는 앱을 역설계·디컴파일·변조하거나, 비정상적인 방법으로 광고 보상 시스템을 우회·악용하거나, 불법적인 목적으로 앱을 이용해서는 안 됩니다.</li>
+      </ul>
+
+      <h2>6. 책임의 제한 및 법정 소비자 권리</h2>
+      <p>앱은 관련 법령이 허용하는 최대 범위 내에서 "있는 그대로(AS IS)" 제공되며, 기기 호환성, 일시적 중단 또는 기기 내 로컬 데이터 손실에 대해 개발자는 고의 또는 중대한 과실이 없는 한 책임을 지지 않습니다. 다만 본 약관의 어떠한 조항도 유럽 경제 지역(EEA), 영국(UK) 및 대한민국 등 거주 국가의 강행 법규에 따라 사용자에게 부여되는 <strong>법정 소비자 보호 권리</strong>를 제한하거나 배제하지 않습니다.</p>
+
+      <h2>7. 개인정보 처리방침 및 약관의 변경</h2>
+      <p>개인정보 및 광고 SDK(Google AdMob / UMP)와 관련된 데이터 처리 내용은 <a href="https://ykapplab.github.io/privacy-fireforest.html" target="_blank" rel="noopener">개인정보 처리방침</a>을 따릅니다. 개발자는 필요한 경우 관련 법령에 위배되지 않는 범위 내에서 앱의 기능이나 본 약관을 변경할 수 있으며, 변경 시 본 페이지를 통해 시행일과 함께 안내합니다.</p>
+
+      <h2>8. 문의처</h2>
+      <p>서비스 이용 및 본 약관에 관한 문의는 아래 이메일로 연락해 주세요.</p>
+      <div class="note">문의 이메일: <a href="mailto:ykapp.lab@gmail.com"><strong>ykapp.lab@gmail.com</strong></a></div>
+    </section>
+
+    <!-- ENGLISH -->
+    <section id="lang-en" class="hidden">
+      <h1>🔥 Campfire: Mind Forest — Terms of Service</h1>
+      <div class="updated">Effective Date: November 26, 2026</div>
+
+      <p>These Terms of Service ("Terms") govern your access to and use of <strong>Campfire: Mind Forest</strong> ("the App"), provided by the developer.</p>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree to these Terms, please stop using the App and uninstall it from your device.</p>
+
+      <h2>2. Service Description &amp; Local-Only Data</h2>
+      <ul>
+        <li>The App is a free relaxation, emotional reflection, and campfire ASMR application.</li>
+        <li><strong>Burn Away Mode (Default):</strong> Thoughts tossed into the campfire are immediately discarded after the burning animation and are never stored or transmitted to external servers.</li>
+        <li><strong>Keep as Ember (Optional):</strong> Notes you choose to save, along with app preferences (warmth, sound settings, etc.), are stored <strong>strictly locally on your device</strong> with no cloud backup. Uninstalling the App or clearing app data will permanently delete locally stored items without recovery.</li>
+      </ul>
+
+      <h2>3. Optional Rewarded Ads &amp; In-App Rewards</h2>
+      <ul>
+        <li>The App does not include paid in-app purchases and does not display forced banner or interstitial ads.</li>
+        <li>When you voluntarily choose to watch an optional <strong>Google AdMob rewarded video ad</strong> to completion, you receive temporary or cosmetic in-app unlocks such as the <strong>24-Hour Starlight Night Pass</strong> (Aurora Magic Fire, Multi-Layer ASMR Mixer, Sleep Timer) or the <strong>Golden Lantern &amp; Fireflies</strong>.</li>
+        <li>Ad availability depends on your network connection and third-party ad inventory provided by Google AdMob.</li>
+      </ul>
+
+      <h2>4. Non-Medical Wellness Disclaimer</h2>
+      <p>The App is intended solely for relaxation, reflection, and entertainment. It is not a medical device and does not provide medical advice, diagnosis, psychotherapy, or mental health treatment. If you are experiencing severe distress or a medical emergency, please seek help from a qualified healthcare professional.</p>
+
+      <h2>5. Intellectual Property &amp; Prohibited Conduct</h2>
+      <ul>
+        <li>All intellectual property rights in the App—including its code, visual design, artwork, audio assets, characters, and text (excluding your personal local notes)—belong to the developer or respective licensors.</li>
+        <li>You agree not to reverse engineer, decompile, tamper with, abuse or bypass the rewarded ad mechanism, or use the App for any unlawful purpose.</li>
+      </ul>
+
+      <h2>6. Limitation of Liability &amp; Statutory Consumer Rights</h2>
+      <p>To the maximum extent permitted by applicable law, the App is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind. The developer is not liable for indirect damages, temporary unavailability, or loss of locally stored data, except where caused by willful misconduct or gross negligence. <strong>Nothing in these Terms limits or excludes any mandatory statutory consumer rights</strong> granted to you under the laws of your jurisdiction, including the European Economic Area (EEA) and the United Kingdom (UK).</p>
+
+      <h2>7. Privacy Policy &amp; Changes to Terms</h2>
+      <p>Data handling practices, including Google AdMob and UMP consent management, are described in our <a href="https://ykapplab.github.io/privacy-fireforest.html" target="_blank" rel="noopener">Privacy Policy</a>. We may update the App or these Terms from time to time as needed; updated Terms will be posted on this page with a revised effective date.</p>
+
+      <h2>8. Contact</h2>
+      <p>If you have any questions regarding these Terms or the App, please contact us:</p>
+      <div class="note">Contact Email: <a href="mailto:ykapp.lab@gmail.com"><strong>ykapp.lab@gmail.com</strong></a></div>
+    </section>
+
+    <!-- JAPANESE -->
+    <section id="lang-ja" class="hidden">
+      <h1>🔥 心を燃やす森 (Campfire: Mind Forest) 利用規約</h1>
+      <div class="updated">施行日: 2026年11月26日</div>
+
+      <p>本利用規約（以下「本規約」）は、<strong>心を燃やす森 (Campfire: Mind Forest)</strong>（以下「本アプリ」）の利用に関する条件を定めるものです。</p>
+
+      <h2>1. 目的および規約への同意</h2>
+      <p>利用者は、本アプリをインストールまたは利用することにより、本規約に同意したものとみなされます。本規約に同意できない場合は、本アプリの利用を中止し、端末からアンインストールしてください。</p>
+
+      <h2>2. サービス内容および端末内データ</h2>
+      <ul>
+        <li>本アプリは、無料で提供する気持ちの整理・焚き火 ASMR ヒーリングアプリです。</li>
+        <li><strong>完全に燃やすモード（初期設定）：</strong>焚き火にくべた言葉はアニメーション終了後ただちに破棄され、保存や外部送信は行われません。</li>
+        <li><strong>残り火として残す（任意機能）：</strong>利用者が保存を選択した内容およびアプリ設定（ぬくもり、サウンド設定等）は<strong>利用者の端末内のみに保存</strong>され、クラウドバックアップは行われません。アプリの削除やデータ消去を行うと、保存された内容は完全に削除され復元できません。</li>
+      </ul>
+
+      <h2>3. 任意のリワード広告およびアプリ内特典</h2>
+      <ul>
+        <li>本アプリには有料のアプリ内課金はなく、強制的なバナー広告や全画面広告も表示しません。</li>
+        <li>利用者が自発的に選択して <strong>Google AdMob リワード動画広告</strong>を視聴完了した場合、<strong>24時間星明かりパス</strong>（オーロラの炎、マルチ ASMR ミキサー、スリープタイマー）や<strong>黄金のランタン＆ホタル</strong>などの特典が解放されます。</li>
+        <li>広告の表示可否は、通信環境および Google AdMob 等の第三者広告配信サービスの在庫状況に依存します。</li>
+      </ul>
+
+      <h2>4. 非医療サービスに関する免責</h2>
+      <p>本アプリはリラックスや気持ちの整理を目的としたコンテンツであり、医療上の助言、診断、心理療法、または精神科医療の代替となるものではありません。専門的な支援が必要な場合は、医療機関や専門家にご相談ください。</p>
+
+      <h2>5. 知的財産権および禁止事項</h2>
+      <ul>
+        <li>本アプリに含まれるプログラム、デザイン、画像、音声、キャラクターおよびテキスト等（利用者が入力した内容を除く）の知的財産権は、開発者または正当な権利者に帰属します。</li>
+        <li>本アプリのリバースエンジニアリング、改ざん、リワード広告の不正利用・回避、その他違法または不適切な目的での利用を禁止します。</li>
+      </ul>
+
+      <h2>6. 責任の制限および法定の消費者権利</h2>
+      <p>適用法令で認められる最大限の範囲において、本アプリは「現状有姿（AS IS）」で提供され、端末内データの消失や一時的な利用不能について、開発者に故意または重過失がある場合を除き責任を負いません。ただし、本規約のいかなる規定も、欧州経済領域（EEA）、英国（UK）、日本その他居住国の強行法規により認められる<strong>法定の消費者保護権利</strong>を制限または排除するものではありません。</p>
+
+      <h2>7. プライバシーポリシーおよび規約の変更</h2>
+      <p>個人情報の取り扱いおよび Google AdMob / UMP に関する詳細は、<a href="https://ykapplab.github.io/privacy-fireforest.html" target="_blank" rel="noopener">プライバシーポリシー</a>をご確認ください。開発者は必要に応じて本アプリの内容または本規約を変更することがあり、変更後の規約は施行日とともに本ページにて告知します。</p>
+
+      <h2>8. お問い合わせ</h2>
+      <p>本規約または本アプリに関するお問い合わせは、以下の連絡先までお願いいたします。</p>
+      <div class="note">連絡先メール: <a href="mailto:ykapp.lab@gmail.com"><strong>ykapp.lab@gmail.com</strong></a></div>
+    </section>
+  </div>
+
+  <script>
+    function setLang(lang, btn) {
+      ['ko', 'en', 'ja'].forEach(function (code) {
+        document.getElementById('lang-' + code).classList.toggle('hidden', code !== lang);
+      });
+      document.querySelectorAll('.lang-btn').forEach(function (el) {
+        el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+      });
+      document.documentElement.lang = lang;
+    }
+
+    (function initLang() {
+      var navLang = (navigator.language || 'en').toLowerCase();
+      var initial = navLang.indexOf('ko') === 0 ? 'ko' : (navLang.indexOf('ja') === 0 ? 'ja' : 'en');
+      setLang(initial);
+    })();
+  </script>
+</body>
+</html>
